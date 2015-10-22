@@ -1,0 +1,28 @@
+
+.skautbazar_row_hidden{
+	display: none;
+}
+
+.skautbazar_table{
+	width: 100%;
+}
+
+.skautbazar_table td{
+	padding: 5px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.skautbazar_table_header{
+	width: 20%;
+}
+
+.required-info{
+	color: red;
+	padding-left: 20px;
+}
+
+.skautbazar_buttons{
+	display: block;
+}
+
