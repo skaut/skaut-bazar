@@ -1,4 +1,5 @@
 ﻿=== Skaut bazar ===
+Contributors: skaut, kalich5
 Tags: Bazar, Skaut, MultiSite
 Requires at least: 4.0
 Tested up to: 4.4
