@@ -1,8 +1,9 @@
 ﻿=== Skaut bazar ===
-Tags: Bazar, Skaut, MultiSite
+Contributors: skaut, kalich5
+Tags: bazar, skaut, multisite, plugin, shortcode, woocommerce, 
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.0.3
+Tested up to: 4.5 Alpha
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,12 +16,24 @@ Implementace jednoduchého bazaru s možností online rezervace přes email
 Plugin po aktivaci se vkládá na libovolnou stránku pomocí Shortcodes: **[skautbazar]**
 
 Plugin podporuje i MultiSite, takže můžete mít na každé stránce jiný bazar, s vlastním nastavením a vším co je s tím spojené. V nastavení je možnost výrozích hodnot. Tedy jméno, přijímení, email a telefon. Požadovaný je vše kromě telefonu.
-
 Při zakládání nového inzerátu, jsou požadovaná pole označena kvězdičkou.
+
+**Uživatelské role**
+
+Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí https://wordpress.org/plugins/wpfront-user-role-editor/ https://wordpress.org/plugins/user-role-editor/, která může mít práva jen k inzerátům.
 
 **Jsme na GitHabu**
 
 https://github.com/skaut/skaut-bazar
+
+**Nápady na nové fukce**
+
+Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
+https://wordpress.org/support/plugin/skaut-bazar
+
+**Rozvojový plán**
+
+https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo
 
 == Installation ==
 
@@ -38,6 +51,8 @@ Musí se v "Nastavení" a najít tam položku "Skaut bazar" a tam je výchozí n
 
 Dá se tam zadat jméno, přijímení, email, telefon, měnu a počáteční číslo inzereátu.
 
+Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí https://wordpress.org/plugins/wpfront-user-role-editor/ https://wordpress.org/plugins/user-role-editor/, která může mít práva jen k inzerátům.
+
 **podpora pluginu**
 
 Oficiální podpora je na: http://dobryweb.skauting.cz/
@@ -51,9 +66,17 @@ https://github.com/skaut/skaut-bazar
 1. Zobrazení na stránkách
 2. Výpis všech položek bazaru
 3. Založení nové položky
-4. Natavení
+4. Nastavení
 
 == Changelog ==
+
+= 1.1 =
+
+* přidání možnosti vytvářet si role k pluginu
+
+= 1.0.4 =
+
+* ikonka
 
 = 1.0.3 =
 

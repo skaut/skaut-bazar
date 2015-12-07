@@ -4,7 +4,7 @@
 Plugin name: Skaut bazar
 Plugin URI: https://wordpress.org/plugins/skaut-bazar
 Description: Bazar pro skautské oddíly
-Version: 1.0.3
+Version: 1.1
 Author: Junák - český skaut, Michal Janata, Radim Brounek
 Author URI: http://dobryweb.skauting.cz/
 License: GPL2
@@ -207,7 +207,17 @@ class skaut_bazar
 			'exclude_from_search' => false,
 			'menu_icon'           => 'dashicons-cart',
 			'publicly_queryable'  => true,
-			'capability_type'     => 'page',
+			'capability_type' => 'bazar',
+			'capabilities' => array(
+			'publish_posts' => 'publish_bazars',
+			'edit_posts' => 'edit_bazars',
+			'edit_others_posts' => 'edit_others_bazars',
+			'read_private_posts' => 'read_private_bazars',
+			'edit_post' => 'edit_bazar',
+			'delete_post' => 'delete_bazar',
+			'read_post' => 'read_bazar',
+),
+'map_meta_cap' => true,
 		);
 		register_post_type( 'skautbazar', $args );
 	}
