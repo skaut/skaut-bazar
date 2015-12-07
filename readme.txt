@@ -1,6 +1,10 @@
 ﻿=== Skaut bazar ===
 Contributors: skaut, kalich5
+<<<<<<< HEAD
 Tags: bazar, skaut, multisite, plugin, shortcode, woocommerce, 
+=======
+Tags: bazar, skaut, multisite, plugin, shortcode, woocommerce 
+>>>>>>> origin/master
 Requires at least: 4.0
 Tested up to: 4.5 Alpha
 Stable tag: 1.1
