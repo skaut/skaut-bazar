@@ -1,13 +1,9 @@
 ﻿=== Skaut bazar ===
-Contributors: skaut, kalich5
-<<<<<<< HEAD
-Tags: bazar, skaut, multisite, plugin, shortcode, woocommerce, 
-=======
-Tags: bazar, skaut, multisite, plugin, shortcode, woocommerce 
->>>>>>> origin/master
+Contributors: skaut, kalich5, rbrounek
+Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 4.0
-Tested up to: 4.5 Alpha
-Stable tag: 1.1
+Tested up to: 4.7 Alpha
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +21,9 @@ Při zakládání nového inzerátu, jsou požadovaná pole označena kvězdičk
 **Uživatelské role**
 
 Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí https://wordpress.org/plugins/wpfront-user-role-editor/ https://wordpress.org/plugins/user-role-editor/, která může mít práva jen k inzerátům.
+
+**Oprava**
+Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vyřešeno. Za pomoc s opravou děkuji Davidu Odehnalovi https://davidodehnal.cz/ 
 
 **Jsme na GitHabu**
 
@@ -45,7 +44,8 @@ Instalace je jednoduchá.
 
 1. Stáhnout si plugin a aktivovat
 2. Výchozí nastavení "nastavení --> Skaut bazar"
-3. V tomto nastavní si nastavte základní 
+	V tomto nastavní si nastavte základní informace o sobě
+3. Vložte na stránku kde chcete mít výpis inzerátů shordtcode: **[skautbazar]**
 
 == Frequently Asked Questions ==
 
@@ -73,6 +73,11 @@ https://github.com/skaut/skaut-bazar
 4. Nastavení
 
 == Changelog ==
+
+= 1.2 =
+
+* oprava uživatelských rolí a jejich přidávání
+* po smazání pluginu, se smažou i role které byly pluginem vytvořené
 
 = 1.1 =
 

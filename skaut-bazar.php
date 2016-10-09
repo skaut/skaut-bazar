@@ -4,7 +4,7 @@
 Plugin name: Skaut bazar
 Plugin URI: https://wordpress.org/plugins/skaut-bazar
 Description: Bazar pro skautské oddíly
-Version: 1.1
+Version: 1.2
 Author: Junák - český skaut, Michal Janata, Radim Brounek
 Author URI: http://dobryweb.skauting.cz/
 License: GPL2
@@ -21,6 +21,7 @@ class skaut_bazar
 		}
 
 		register_activation_hook( __FILE__, array( $this, 'init' ) );
+		register_uninstall_hook( __FILE__, array( $this, 'unregisterNewCapabilities' ) );
 
 		// actions
 		add_action( 'init', array( &$this, 'skautbazar_cpt' ) );
@@ -63,31 +64,31 @@ class skaut_bazar
 
 
 
-	public function init()
-	{		
-		flush_rewrite_rules();
-
-		if ( !get_option( 'skautbazar_option' ) ) {
-			$skatubazar_option = array(
-				'status' => array(
-					1 => 'active',
-					2 => 'reserverd',
-					3 => 'archive'
-					),
-				'default_author' => array(
-					'author_name' => '',
-					'author_lastname' => '',
-					'author_email' => '',
-					'author_tel' => ''
-					),
-				'poradove_cislo' => 1,
-				'default_currency_position' => 'right',
-				'default_currency' => ''
-			);
-			add_option('skautbazar_option', $skatubazar_option);	
-		}
-	}
-
+public function init()
+{		
+  flush_rewrite_rules();
+  if ( !get_option( 'skautbazar_option' ) ) {
+    $skatubazar_option = array(
+      'status' => array(
+        1 => 'active',
+        2 => 'reserverd',
+        3 => 'archive'
+        ),
+      'default_author' => array(
+        'author_name' => '',
+        'author_lastname' => '',
+        'author_email' => '',
+        'author_tel' => ''
+        ),
+      'poradove_cislo' => 1,
+      'default_currency_position' => 'right',
+      'default_currency' => ''
+    );
+    add_option('skautbazar_option', $skatubazar_option);	
+  }
+  
+  $this->registerNewCapabilities();
+}
 
 
 	function skautbazar_views( $views )
@@ -206,23 +207,40 @@ class skaut_bazar
 			'has_archive'         => false,
 			'exclude_from_search' => false,
 			'menu_icon'           => 'dashicons-cart',
-			'publicly_queryable'  => true,
-			'capability_type' => 'bazar',
-			'capabilities' => array(
-			'publish_posts' => 'publish_bazars',
-			'edit_posts' => 'edit_bazars',
-			'edit_others_posts' => 'edit_others_bazars',
-			'read_private_posts' => 'read_private_bazars',
-			'edit_post' => 'edit_bazar',
-			'delete_post' => 'delete_bazar',
-			'read_post' => 'read_bazar',
-),
-'map_meta_cap' => true,
+			'map_meta_cap' => true,
 		);
 		register_post_type( 'skautbazar', $args );
 	}
 
+	private function registerNewCapabilities()
+	{
+		$admins = get_role( 'administrator' );
+		$admins->add_cap( 'publish_bazars' );
+		$admins->add_cap( 'edit_bazars' );
+		$admins->add_cap( 'edit_others_bazars' );
+		$admins->add_cap( 'read_private_bazars' );
+		$admins->add_cap( 'edit_bazar' );
+		$admins->add_cap( 'delete_bazar' );
+		$admins->add_cap( 'read_bazar' );
+	}
 
+	private function unregisterNewCapabilities() {
+		global $wp_roles;
+		$deleteCaps = array(
+			'publish_bazars',
+			'edit_bazars',
+			'edit_others_bazars',
+			'read_private_bazars',
+			'edit_bazar',
+			'delete_bazar',
+			'read_bazar'
+		);
+		foreach ( $deleteCaps as $cap ) {
+			foreach ( array_keys( $wp_roles->roles ) as $role ) {
+				$wp_roles->remove_cap( $role, $cap );
+			}
+		}
+	}
 
 	public function skautbazar_columns( $columns )
 	{
