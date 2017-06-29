@@ -20,23 +20,22 @@ Při zakládání nového inzerátu, jsou požadovaná pole označena kvězdičk
 
 **Uživatelské role**
 
-Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí https://wordpress.org/plugins/wpfront-user-role-editor/ https://wordpress.org/plugins/user-role-editor/, která může mít práva jen k inzerátům.
+Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) nebo [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), která může mít práva jen k inzerátům.
 
 **Oprava**
 Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vyřešeno. Za pomoc s opravou děkuji Davidu Odehnalovi https://davidodehnal.cz/ 
 
 **Jsme na GitHabu**
-
-https://github.com/skaut/skaut-bazar
+[https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
 
 **Nápady na nové fukce**
 
 Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
-https://wordpress.org/support/plugin/skaut-bazar
+[https://cs.wordpress.org/support/plugin/skaut-bazar](https://cs.wordpress.org/support/plugin/skaut-bazar)
 
 **Rozvojový plán**
 
-https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo
+[https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo](https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo)
 
 == Installation ==
 
@@ -55,15 +54,15 @@ Musí se v "Nastavení" a najít tam položku "Skaut bazar" a tam je výchozí n
 
 Dá se tam zadat jméno, přijímení, email, telefon, měnu a počáteční číslo inzereátu.
 
-Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí https://wordpress.org/plugins/wpfront-user-role-editor/ https://wordpress.org/plugins/user-role-editor/, která může mít práva jen k inzerátům.
+Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) nebo [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), která může mít práva jen k inzerátům.
 
 **podpora pluginu**
 
-Oficiální podpora je na: http://dobryweb.skauting.cz/
+Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skauting.cz/)
 
 **Jsme na GitHabu**
 
-https://github.com/skaut/skaut-bazar
+[https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
 
 == Screenshots ==
 
