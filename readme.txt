@@ -60,7 +60,7 @@ Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytv�
 
 Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skauting.cz/)
 
-**Jsme na GitHabu**
+**Jsme na GitHubu**
 
 [https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
 
