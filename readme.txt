@@ -25,7 +25,7 @@ Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytv�
 **Oprava**
 Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vyřešeno. Za pomoc s opravou děkuji Davidu Odehnalovi https://davidodehnal.cz/ 
 
-**Jsme na GitHabu**
+**Jsme na GitHubu**
 [https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
 
 **Nápady na nové fukce**
