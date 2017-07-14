@@ -1,5 +1,5 @@
 ﻿=== Skaut bazar ===
-Contributors: skaut, kalich5, rbrounek
+Contributors: skaut, kalich5, davidulus, rbrounek
 Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 4.0
 Tested up to: 4.9
