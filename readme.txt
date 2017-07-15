@@ -25,9 +25,6 @@ Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytv�
 **Oprava**
 Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vyřešeno. Za pomoc s opravou děkuji Davidu Odehnalovi https://davidodehnal.cz/ 
 
-**Jsme na GitHubu**
-[https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
-
 **Nápady na nové fukce**
 
 Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
@@ -74,29 +71,23 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 == Changelog ==
 
 = 1.2 =
-
 * oprava uživatelských rolí a jejich přidávání
 * po smazání pluginu, se smažou i role které byly pluginem vytvořené
 
 = 1.1 =
-
 * přidání možnosti vytvářet si role k pluginu
 
 = 1.0.4 =
-
 * ikonka
 
 = 1.0.3 =
-
 * přidána úvodní fotky
 * screenshoty
 
 = 1.0.2 =
-
 * opravy na wordpress.org 2
 
 = 1.0.1 =
-
 * opravy na wordpress.org
 
 = 1.0 =
