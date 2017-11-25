@@ -22,9 +22,6 @@ Při zakládání nového inzerátu, jsou požadovaná pole označena kvězdičk
 
 Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) nebo [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), která může mít práva jen k inzerátům.
 
-**Oprava**
-Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vyřešeno. Za pomoc s opravou děkuji Davidu Odehnalovi https://davidodehnal.cz/ 
-
 **Nápady na nové fukce**
 
 Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
