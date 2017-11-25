@@ -30,10 +30,6 @@ Ve verzi 1.1 byla chyba s přidělováním uživatelských rolí. To je nyní vy
 Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
 [https://cs.wordpress.org/support/plugin/skaut-bazar](https://cs.wordpress.org/support/plugin/skaut-bazar)
 
-**Rozvojový plán**
-
-[https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo](https://drive.google.com/open?id=1ur7GIfM4cCkY_TBZuvdO1jBCy5hoxSl49PwIwrr6YPo)
-
 == Installation ==
 
 Instalace je jednoduchá.
