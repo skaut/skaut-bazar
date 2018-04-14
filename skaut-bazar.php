@@ -665,6 +665,10 @@ public function init()
 						<td><?php _e( 'Disable author lastname field', 'skautbazar' ) ?></td>
 						<td><input type='checkbox' id='disable_author_lastname' name='disable_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['disable_author_lastname'] ) ?>' /></td>
 					</tr>
+					<tr>
+						<td><?php _e( 'Last inzerat no.', 'skautbazar' ) ?></td>
+						<td><input type="text" id="poradove_cislo" name="poradove_cislo" value="<?php echo $skautbazar_option['poradove_cislo'] ?>"></td>
+					</tr>
 				</table>
 
 				<h3> <?php _e('Required fields', 'skautbazar') ?> </h3>
@@ -736,14 +740,6 @@ public function init()
 					</tr>
 				</table>
 
-				<h3> <?php _e('Other', 'skautbazar') ?> </h3>
-				<table class="widefat fixed" cellspacing="0">
-					<tr>
-						<td style="width: 200px"><?php _e( 'Last inzerat no.', 'skautbazar' ) ?></td>
-						<td><input type="text" id="poradove_cislo" name="poradove_cislo" value="<?php echo $skautbazar_option['poradove_cislo'] ?>"></td>
-					</tr>
-				</table>
-				
 				<p><input type="submit" class="button-primary" name="Submit" value="<?php _e('Save', 'skautbazar') ?>" /></p>
 				<input type="hidden" name="action" id="action" value="save">
 			</form>
