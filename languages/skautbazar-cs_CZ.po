@@ -166,18 +166,14 @@ msgid "Next inzerat no."
 msgstr "Další číslo inzerátu"
 
 msgid "Last inzerat no."
-msgstr "Poslední číslo inezrátu"
+msgstr "Poslední číslo inzerátu"
 
 msgid "Save"
 msgstr "Uložit"
 
 
-
-
 msgid "Exchange for"
 msgstr "Výměna za"
-
-
 
 
 msgid "Inzerat no. "
@@ -187,21 +183,8 @@ msgid "Contact"
 msgstr "Kontakt"
 
 
-
-
-
-
-
-
-
-
-
-
-
 msgid "Interested"
 msgstr "Mám zájem"
-
-
 
 
 msgid "Enter your e-mail address to complete reservation"
@@ -221,8 +204,6 @@ msgstr "Rezervace inzerátu"
 
 msgid "E-mail address is not valid"
 msgstr "E-mailová adresa není platná"
-
-
 
 
 msgid "Item was reserved for your e-mail address"
