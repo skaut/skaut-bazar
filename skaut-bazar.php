@@ -926,7 +926,7 @@ public function init()
 	    $output .= '<div class="skautbazar_emailbox_bg">';
 	    	$output .= '<div class="skautbazar_emailbox">';
 				$output .= '<p>'. __( 'Enter your e-mail address to complete reservation', 'skautbazar' ) .'</p>';
-				$output .= '<p><input type="email" id="skautbazar_email_customer" name="skautbazar_email_customer"></p>';
+				$output .= '<p><input type="email" id="skautbazar_email_customer" name="skautbazar_email_customer" value="'.  wp_get_current_user()->user_email .'"></p>';
 				$output .= '<input type="hidden" id="skautbazar_item_id" name="skautbazar_item_id" value="">';
 				if ($skautbazar_option['allow_buyer_message']) {
 					$output .= '<p>'. __( 'Custom message for seller', 'skautbazar' ) .'</p>';
