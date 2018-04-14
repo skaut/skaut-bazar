@@ -26,7 +26,7 @@
 	display: block;
 }
 
-textarea#skautbazar_buyer_message {
+textarea#skautbazar_buyer_message{
 	width: 270px;
 	height: 90px;
 	resize: both;
@@ -34,6 +34,6 @@ textarea#skautbazar_buyer_message {
 
 .skautbazar_table input[type=text],
 .skautbazar_table input[type=email],
-.skautbazar_table input[type=tel] {
+.skautbazar_table input[type=tel]{
 	min-width: 270px;
 }
