@@ -344,3 +344,21 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://dobryweb.skauting.cz/"
 msgstr ""
+
+
+# Newly added strings
+
+msgid "Message from potential buyer"
+msgstr ""
+
+msgid "Message to seller"
+msgstr ""
+
+msgid "Plugin settings"
+msgstr ""
+
+msgid "Allow message from potential buyer to the seller"
+msgstr ""
+
+msgid "Disable author lastname field"
+msgstr ""
