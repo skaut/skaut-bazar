@@ -8,6 +8,12 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         $('.skautbazar_emailbox_bg').css({'display': 'block'});
         $('#skautbazar_item_id').val($(this).attr('href'));
+
+        // Restore state of the box to default one
+        $('.skautbazar_message').text('');
+        $('.skautbazar_email_submit').css({'display': 'inline-block'});
+        $('#skautbazar_email_customer').attr('readonly', false);
+        $('#skautbazar_message_customer').val('');
     });
 
     $('.skautbazar_email_submit').click(function(e) {
