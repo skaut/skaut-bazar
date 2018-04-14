@@ -265,21 +265,17 @@ msgid "Tag"
 msgstr "Štítek"
 
 
+msgid "Message from potential buyer"
+msgstr "Zpráva od zájemce"
 
+msgid "Message to seller"
+msgstr "Zpráva pro nabízejícího"
 
+msgid "Plugin settings"
+msgstr "Nastavení pluginu"
 
+msgid "Allow message from potential buyer to the seller"
+msgstr "Povolit zprávu od zájemce pro nabízejícího"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+msgid "Disable author lastname field"
+msgstr "Deaktivovat pole pro příjmení"
