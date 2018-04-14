@@ -538,19 +538,26 @@ public function init()
 	            		
 					</td>
 				</tr>
-				<tr>
-					<td class="skautbazar_table_header"><?php _e( 'Name', 'skautbazar' ) ?> *:</td>
-					<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" class="required" value="<?php echo isset($skautbazar_inzerat['inzerat']['name']) ? $skautbazar_inzerat['inzerat']['name'] : $skautbazar_option['default_author']['author_name'] ?>" type="text" ></td>
-				</tr>
-				<?php if (!$skautbazar_option['disable_author_lastname']): ?>
+
+				<?php if ($skautbazar_option['disable_author_lastname']): ?>
+					<tr>
+						<td class="skautbazar_table_header"><?php _e( 'Name', 'skautbazar' ) ?> *:</td>
+						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" class="required" value="<?php echo isset($skautbazar_inzerat['inzerat']['name']) ? $skautbazar_inzerat['inzerat']['name'] : (($skautbazar_option['default_author']['author_name']) ? $skautbazar_option['default_author']['author_name'] : wp_get_current_user()->display_name ) ?>" type="text" ></td>
+					</tr>
+				<?php else: ?>
+					<tr>
+						<td class="skautbazar_table_header"><?php _e( 'Name', 'skautbazar' ) ?> *:</td>
+						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" class="required" value="<?php echo isset($skautbazar_inzerat['inzerat']['name']) ? $skautbazar_inzerat['inzerat']['name'] : (($skautbazar_option['default_author']['author_name']) ? $skautbazar_option['default_author']['author_name'] : wp_get_current_user()->user_firstname ) ?>" type="text" ></td>
+					</tr>
 					<tr>
 						<td class="skautbazar_table_header"><?php _e( 'Last name', 'skautbazar' ) ?> *:</td>
-						<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" class="required" type="text" value="<?php echo isset($skautbazar_inzerat['inzerat']['lastname']) ? $skautbazar_inzerat['inzerat']['lastname'] : $skautbazar_option['default_author']['author_lastname'] ?>"></td>
+						<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" class="required" type="text" value="<?php echo isset($skautbazar_inzerat['inzerat']['lastname']) ? $skautbazar_inzerat['inzerat']['lastname'] : (($skautbazar_option['default_author']['author_lastname']) ? $skautbazar_option['default_author']['author_lastname'] : wp_get_current_user()->user_lastname ) ?>"></td>
 					</tr>
 				<?php endif; ?>
+
 				<tr>
 					<td class="skautbazar_table_header"><?php _e( 'E-mail', 'skautbazar' ) ?> *:</td>
-					<td><input name="skautbazar_email_inzerat_autor" id="skautbazar_email_inzerat_autor" class="required" type="email" value="<?php echo isset($skautbazar_inzerat['inzerat']['email']) ? $skautbazar_inzerat['inzerat']['email'] : $skautbazar_option['default_author']['author_email'] ?>"></td>
+					<td><input name="skautbazar_email_inzerat_autor" id="skautbazar_email_inzerat_autor" class="required" type="email" value="<?php echo isset($skautbazar_inzerat['inzerat']['email']) ? $skautbazar_inzerat['inzerat']['email'] : (($skautbazar_option['default_author']['author_email']) ? $skautbazar_option['default_author']['author_email'] : wp_get_current_user()->user_email ) ?>"></td>
 				</tr>
 				<tr>
 					<td class="skautbazar_table_header"><?php _e( 'Telephone', 'skautbazar' ) ?>:</td>
