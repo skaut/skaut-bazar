@@ -52,11 +52,20 @@ jQuery(document).ready(function($) {
 
 	
 	var $check = $('#skautbazar_status').val();	
-	if($check == 2 || $check == 3 ) $('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'table-row'});	
+	if ($check == 2 || $check == 3) {
+		$('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'table-row'});
+		$('#skautbazar_row_reservation_message.skautbazar_row_hidden').css({'display':'table-row'});
+	}
 
 	$('#skautbazar_status').change(function(){
-		if($(this).val() == 1) $('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'none'});
-		else $('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'table-row'});
+		if ($(this).val() == 1) {
+			$('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'none'});
+			$('#skautbazar_row_reservation_message.skautbazar_row_hidden').css({'display':'none'});
+		}
+		else {
+			$('#skautbazar_row_reservation_email.skautbazar_row_hidden').css({'display':'table-row'});
+			$('#skautbazar_row_reservation_message.skautbazar_row_hidden').css({'display':'table-row'});
+		}
 	});
 
 	
