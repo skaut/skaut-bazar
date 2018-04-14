@@ -1,9 +1,9 @@
 ﻿=== Skaut bazar ===
-Contributors: skaut, kalich5, davidulus, rbrounek
+Contributors: skaut, kalich5, davidulus, rbrounek, kulikjak
 Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 4.0
 Tested up to: 5.0
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,12 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 
 == Changelog ==
 
+= 1.3 =
+* přidána možnost zaslat nabízejícímu zprávu
+* přidána možnost skrýt příjmení
+* automatické vyplňování jména a emailu do formulářů
+* oprava menších glitchů
+
 = 1.2 =
 * oprava uživatelských rolí a jejich přidávání
 * po smazání pluginu, se smažou i role které byly pluginem vytvořené
@@ -87,6 +93,6 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 * možnost zakládat inzeráty
 * rezervace přes email
 * podpora MultiSite
-* podpora rublir a štítků
+* podpora rubrik a štítků
 * překlad EN a CZ
 * podpora shortcodes
