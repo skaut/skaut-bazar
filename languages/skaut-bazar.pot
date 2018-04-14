@@ -365,3 +365,6 @@ msgstr ""
 
 msgid "Amount"
 msgstr ""
+
+msgid "Required fields"
+msgstr ""
