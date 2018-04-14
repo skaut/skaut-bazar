@@ -282,3 +282,6 @@ msgstr "Deaktivovat pole pro příjmení"
 
 msgid "Amount"
 msgstr "Množství"
+
+msgid "Required fields"
+msgstr "Požadovaná pole"
