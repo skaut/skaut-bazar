@@ -1,7 +1,9 @@
 .skautbazar_post{
-	width: 100%;	
-	padding: 30px;
-	margin-bottom: 32px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 24px;
+	margin-bottom: 24px;
 	background-color: #eee;
 }
 
@@ -10,7 +12,6 @@
 }
 
 .skautbazar_post p{
-	
 	margin: 0;
 	padding: 0;
 }
@@ -18,7 +19,7 @@
 .skautbazar_post_heading{
 	line-height: 140%;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	display: inline;
 }
 
@@ -52,7 +53,6 @@
 }
 
 .skautbazar_prev_img{
-
 	padding: 20px;
 }
 
@@ -96,26 +96,25 @@
 }
 
 .skautbazar_emailbox_bg{
-  display: none;
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 8888 !important;
+	display: none;
+	position: fixed;
+	overflow-y: scroll;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 8888 !important;
 
-  width: 100%;
-  height: 100%;
-   
-  -webkit-animation: fade-in .25s ease-in;
-  -moz-animation-name: fade-in .25s ease-in;
-  -ms-animation-name: fade-in .25s ease-in;
-  -o-animation-name: fade-in .25s ease-in;
-  animation-name: fade-in .25s ease-in;
+	width: 100%;
+	height: 100%;
 
-  
-  background-color: rgba(0, 0, 0, 0.8);
+	-webkit-animation: fade-in .25s ease-in;
+	-moz-animation-name: fade-in .25s ease-in;
+	-ms-animation-name: fade-in .25s ease-in;
+	-o-animation-name: fade-in .25s ease-in;
+	animation-name: fade-in .25s ease-in;
+
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 .skautbazar_emailbox{
@@ -137,11 +136,6 @@ body{
 	position: relative; 
 	height: 100%;
 	min-height: 100%;
-}
-
-
-.skatubazar_post_category{
-	
 }
 
 .skautbazar_infotext{
@@ -180,8 +174,7 @@ body{
 	.skatubazar_post_category,
 	.skautbazar_infotext,
 	.skautbazar_infotext,
-	.skautbazar_rezervace
-	{
+	.skautbazar_rezervace{
 		width: 100%;
 	}
 
@@ -209,8 +202,4 @@ body{
 		float: left;
 		padding-top: 15px;
 	}
-
-
 }
-
-
