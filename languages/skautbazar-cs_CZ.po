@@ -266,3 +266,6 @@ msgstr "Množství"
 
 msgid "Required fields"
 msgstr "Požadovaná pole"
+
+msgid "Hide inzerat number"
+msgstr "Nezobrazovat čísla inzerátů"

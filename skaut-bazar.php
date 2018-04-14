@@ -88,7 +88,8 @@ public function init()
 	  'default_currency_position' => 'right',
 	  'default_currency' => '',
 	  'allow_buyer_message' => 0,
-	  'disable_author_lastname' => 0
+	  'disable_author_lastname' => 0,
+	  'hide_inzerat_number' => 0
 	);
 	add_option('skautbazar_option', $skatubazar_option);
   }
@@ -644,6 +645,7 @@ public function init()
 
 			$skautbazar_option['allow_buyer_message'] = sanitize_text_field($_POST['allow_buyer_message']);
 			$skautbazar_option['disable_author_lastname'] = sanitize_text_field($_POST['disable_author_lastname']);
+			$skautbazar_option['hide_inzerat_number'] = sanitize_text_field($_POST['hide_inzerat_number']);
 
 			$skautbazar_option['required_fields']['author_name'] = sanitize_text_field($_POST['req_author_name']);
 			$skautbazar_option['required_fields']['author_lastname'] = sanitize_text_field($_POST['req_author_lastname']);
@@ -669,6 +671,10 @@ public function init()
 					<tr>
 						<td><?php _e( 'Disable author lastname field', 'skautbazar' ) ?></td>
 						<td><input type='checkbox' id='disable_author_lastname' name='disable_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['disable_author_lastname'] ) ?>' /></td>
+					</tr>
+					<tr>
+						<td><?php _e( 'Hide inzerat number', 'skautbazar' ) ?></td>
+						<td><input type='checkbox' id='hide_inzerat_number' name='hide_inzerat_number' value='1' <?php checked( 1 == $skautbazar_option['hide_inzerat_number'] ) ?>' /></td>
 					</tr>
 					<tr>
 						<td><?php _e( 'Last inzerat no.', 'skautbazar' ) ?></td>
@@ -883,8 +889,9 @@ public function init()
 				$output .= '<div class="skatubazar_post_box'. $customClass .'">';
 					$output .= '<h2 class="skautbazar_post_heading">' . $skautbazar_inzerat['inzerat']['title'] . '</h2>';
 					$output .= '<div class="skautbazar_post_info">';
-						$output .= '<p>'. __( 'Inzerat no. ', 'skautbazar' ) . ' ' . get_the_title() .'</p>';
-
+						if (!$skautbazar_option['hide_inzerat_number']) {
+							$output .= '<p>'. __( 'Inzerat no. ', 'skautbazar' ) . ' ' . get_the_title() .'</p>';
+						}
 
 						$output .= '<p><strong>';
 						$output .= ( $skautbazar_option['default_currency_position'] == 'left' ) && $skautbazar_inzerat['inzerat']['type'] == 'price' ? $skautbazar_option['default_currency'] . ' ' : '';
