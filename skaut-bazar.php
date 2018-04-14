@@ -363,8 +363,13 @@ public function init()
 		$skautbazar_size = sanitize_text_field($_POST['skautbazar_velikost_inzerat_autor']);
 		$skautbazar_img = sanitize_text_field($_POST['skautbazar_image_id']);
 
-		if($skautbazar_status == 1) $skautbazar_buyer_email = '';
-		else $skautbazar_buyer_email = sanitize_email($_POST['skautbazar_buyer_email']);
+		if ($skautbazar_status == 1) {
+			$skautbazar_buyer_email = '';
+			$skautbazar_buyer_message = '';
+		} else {
+			$skautbazar_buyer_email = sanitize_email($_POST['skautbazar_buyer_email']);
+			$skautbazar_buyer_message = sanitize_text_field($_POST['skautbazar_buyer_message']);
+		}
 
 		$skautbazar_item = array(
 				'inzerat' => array(
