@@ -707,7 +707,7 @@ public function init()
 	        		</tr>
 	        	</table>
 	        		
-	        	<h3> <?php _e('Other.', 'skautbazar') ?> </h3>
+	        	<h3> <?php _e('Other', 'skautbazar') ?> </h3>
 	        	<table class="widefat fixed" cellspacing="0">
 	        		<tr>
 	        			<td style="width: 200px"><?php _e( 'Last inzerat no.', 'skautbazar' ) ?></td>
