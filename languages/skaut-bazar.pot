@@ -368,3 +368,6 @@ msgstr ""
 
 msgid "Required fields"
 msgstr ""
+
+msgid "Hide inzerat number"
+msgstr ""
