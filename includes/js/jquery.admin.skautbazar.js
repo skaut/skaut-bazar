@@ -86,9 +86,8 @@ jQuery(document).ready(function($) {
 
 		$('.required').each(function() {
 			if ($(this).val() == '-1' || $(this).val() == '') {
-				error = false;
 				$(this).after('<span class="required-info">' + translation.fill_required_field + '</span>');
-				e.preventDefault();
+				error = false;
 			}
 		});
 
@@ -102,8 +101,10 @@ jQuery(document).ready(function($) {
 			error = false;
 		}
 
-		if (!error)
+		if (!error) {
 			$('.wrap h2').after('<div class="error skatubazar_error"><p>' + translation.fill_required_field + '</p></div>');
+			e.preventDefault();
+		}
 	});
 
 
