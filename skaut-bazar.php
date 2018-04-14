@@ -83,7 +83,8 @@ public function init()
       'poradove_cislo' => 1,
       'default_currency_position' => 'right',
       'default_currency' => '',
-      'allow_buyer_message' => 0
+      'allow_buyer_message' => 0,
+      'disable_author_lastname' => 0
     );
     add_option('skautbazar_option', $skatubazar_option);	
   }
@@ -518,7 +519,7 @@ public function init()
 					<td class="skautbazar_table_header"><?php _e( 'Message from buyer', 'skautbazar' ) ?>:</td>
 					<td><textarea name="skautbazar_buyer_message" id="skautbazar_buyer_message" disabled><?php echo isset($skautbazar_inzerat['inzerat']['buyer_message']) ? $skautbazar_inzerat['inzerat']['buyer_message'] : ''; ?></textarea></td>
 				</tr>
-				<tr>				
+				<tr>
 					<td class="skautbazar_table_header"><?php _e( 'Picture', 'skautbazar' ) ?> *:</td>
 					<td>					
 						<?php if(isset($skautbazar_inzerat['inzerat']['img'])): ?>
@@ -541,10 +542,12 @@ public function init()
 					<td class="skautbazar_table_header"><?php _e( 'Name', 'skautbazar' ) ?> *:</td>
 					<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" class="required" value="<?php echo isset($skautbazar_inzerat['inzerat']['name']) ? $skautbazar_inzerat['inzerat']['name'] : $skautbazar_option['default_author']['author_name'] ?>" type="text" ></td>
 				</tr>
-				<tr>
-					<td class="skautbazar_table_header"><?php _e( 'Last name', 'skautbazar' ) ?> *:</td>
-					<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" class="required" type="text" value="<?php echo isset($skautbazar_inzerat['inzerat']['lastname']) ? $skautbazar_inzerat['inzerat']['lastname'] : $skautbazar_option['default_author']['author_lastname'] ?>"></td>
-				</tr>
+				<?php if (!$skautbazar_option['disable_author_lastname']): ?>
+					<tr>
+						<td class="skautbazar_table_header"><?php _e( 'Last name', 'skautbazar' ) ?> *:</td>
+						<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" class="required" type="text" value="<?php echo isset($skautbazar_inzerat['inzerat']['lastname']) ? $skautbazar_inzerat['inzerat']['lastname'] : $skautbazar_option['default_author']['author_lastname'] ?>"></td>
+					</tr>
+				<?php endif; ?>
 				<tr>
 					<td class="skautbazar_table_header"><?php _e( 'E-mail', 'skautbazar' ) ?> *:</td>
 					<td><input name="skautbazar_email_inzerat_autor" id="skautbazar_email_inzerat_autor" class="required" type="email" value="<?php echo isset($skautbazar_inzerat['inzerat']['email']) ? $skautbazar_inzerat['inzerat']['email'] : $skautbazar_option['default_author']['author_email'] ?>"></td>
@@ -634,6 +637,7 @@ public function init()
 			$skautbazar_option['poradove_cislo'] = $_POST['poradove_cislo'];
 
 			$skautbazar_option['allow_buyer_message'] = sanitize_text_field($_POST['allow_buyer_message']);
+			$skautbazar_option['disable_author_lastname'] = sanitize_text_field($_POST['disable_author_lastname']);
 
 			update_option('skautbazar_option', $skautbazar_option);
 		}
@@ -649,6 +653,10 @@ public function init()
 	        			<td style="width: 300px;"><?php _e( 'Allow message from potential buyer to the seller', 'skautbazar' ) ?></td>
 	        			<td><input type='checkbox' id='allow_buyer_message' name='allow_buyer_message' value='1' <?php checked( 1 == $skautbazar_option['allow_buyer_message'] ) ?>' /></td>
 	        		</tr>
+	        		<tr>
+	        			<td><?php _e( 'Disable author lastname field', 'skautbazar' ) ?></td>
+	        			<td><input type='checkbox' id='disable_author_lastname' name='disable_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['disable_author_lastname'] ) ?>' /></td>
+	        		</tr>
 	        	</table>
 
 	        	<h3> <?php _e('Default values', 'skautbazar') ?> </h3>
@@ -657,10 +665,12 @@ public function init()
 	        			<td style="width: 200px;"><?php _e( 'Default name', 'skautbazar' ) ?></td>
 	        			<td><input type="text" id="author_name" name="author_name" value="<?php echo $skautbazar_option['default_author']['author_name'] ?>"></td>
 	        		</tr>
-	        		<tr>
-	        			<td><?php _e( 'Default last name', 'skautbazar' ) ?></td>
-	        			<td><input type="text" id="author_lastname" name="author_lastname" value="<?php echo $skautbazar_option['default_author']['author_lastname'] ?>"></td>
-	        		</tr>
+					<?php if (!$skautbazar_option['disable_author_lastname']): ?>
+						<tr>
+							<td><?php _e( 'Default last name', 'skautbazar' ) ?></td>
+							<td><input type="text" id="author_lastname" name="author_lastname" value="<?php echo $skautbazar_option['default_author']['author_lastname'] ?>"></td>
+						</tr>
+					<?php endif; ?>
 	        		<tr>
 	        			<td><?php _e( 'Default e-mail', 'skautbazar' ) ?></td>
 	        			<td><input type="text" id="author_email" name="author_email" value="<?php echo $skautbazar_option['default_author']['author_email'] ?>"></td>
