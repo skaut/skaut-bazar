@@ -520,12 +520,12 @@ public function init()
 					<td><textarea name="skautbazar_buyer_message" id="skautbazar_buyer_message" disabled><?php echo isset($skautbazar_inzerat['inzerat']['buyer_message']) ? $skautbazar_inzerat['inzerat']['buyer_message'] : ''; ?></textarea></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php _e( 'Picture', 'skautbazar' ) ?> *:</td>
+					<td class="skautbazar_table_header"><?php _e( 'Picture', 'skautbazar' ) ?>:</td>
 					<td>					
 						<?php if(isset($skautbazar_inzerat['inzerat']['img'])): ?>
 							<?php $img_id = $skautbazar_inzerat['inzerat']['img'] ?>
 							<?php $img_attr = wp_get_attachment_image_src($skautbazar_inzerat['inzerat']['img']) ?>
-							<input type="hidden" value="<?php echo $skautbazar_inzerat['inzerat']['img'] ?>" class="regular-text process_custom_images required" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
+							<input type="hidden" value="<?php echo $skautbazar_inzerat['inzerat']['img'] ?>" class="regular-text process_custom_images" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
 							<img style="width: 160px; height: auto" src="<?php echo $img_attr[0] ?>" id="skautbazar_intro_image">
 						<?php else: ?>
 							<input type="hidden" value="" class="regular-text process_custom_images" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
