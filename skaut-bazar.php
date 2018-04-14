@@ -352,6 +352,7 @@ public function init()
 		$skautbazar_type = sanitize_text_field($_POST['skautbazar_type_author']);
 		$skautbazar_type_price = sanitize_text_field($_POST['skautbazar_price']);
 		$skautbazar_type_exchange = sanitize_text_field($_POST['skautbazar_exchange']);
+		$skautbazar_amount = sanitize_text_field($_POST['skautbazar_mnozstvi_inzerat_autor']);
 		$skautbazar_size = sanitize_text_field($_POST['skautbazar_velikost_inzerat_autor']);
 		$skautbazar_img = sanitize_text_field($_POST['skautbazar_image_id']);
 
@@ -364,6 +365,7 @@ public function init()
 					'lastname' => $skautbazar_lastname,
 					'email' => $skautbazar_email,
 					'telefon' => $skautbazar_telefon,
+					'amount' => $skautbazar_amount,
 					'size' => $skautbazar_size,
 					'type' => $skautbazar_type,
 					'price' => $skautbazar_type_price,
@@ -582,6 +584,10 @@ public function init()
 					<td><input type="text" name="skautbazar_exchange" id="skautbazar_exchange" value="<?php echo isset($skautbazar_inzerat['inzerat']['exchange']) ? $skautbazar_inzerat['inzerat']['exchange'] : '' ?>"></td>
 				</tr>
 				<tr>
+					<td class="skautbazar_table_header"><?php _e( 'Amount', 'skautbazar' ) ?>:</td>
+					<td><input name="skautbazar_mnozstvi_inzerat_autor" id="skautbazar_mnozstvi_inzerat_autor" type="tel" value="<?php echo isset($skautbazar_inzerat['inzerat']['amount']) ? $skautbazar_inzerat['inzerat']['amount'] : '1' ?>"></td>
+				</tr>
+				<tr>
 					<td class="skautbazar_table_header"><?php _e( 'Size', 'skautbazar' ) ?>:</td>
 					<td><input name="skautbazar_velikost_inzerat_autor" id="skautbazar_velikost_inzerat_autor" type="tel" value="<?php echo isset($skautbazar_inzerat['inzerat']['size']) ? $skautbazar_inzerat['inzerat']['size'] : '' ?>"></td>
 				</tr>
@@ -638,7 +644,7 @@ public function init()
 				<h3> <?php _e('Plugin settings', 'skautbazar') ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
-						<td style="width: 300px;"><?php _e( 'Allow message from potential buyer to the seller', 'skautbazar' ) ?></td>
+						<td style="width: 300px;"><?php _e( 'Allow message from buyer to the seller', 'skautbazar' ) ?></td>
 						<td><input type='checkbox' id='allow_buyer_message' name='allow_buyer_message' value='1' <?php checked( 1 == $skautbazar_option['allow_buyer_message'] ) ?>' /></td>
 					</tr>
 					<tr>
@@ -841,7 +847,10 @@ public function init()
 						$output .= ( $skautbazar_option['default_currency_position'] == 'right' ) && $skautbazar_inzerat['inzerat']['type'] == 'price' ? ' ' . $skautbazar_option['default_currency'] : '';
 						$output .= '</strong></p>';
 
-						if(isset($skautbazar_inzerat['inzerat']['size']) && $skautbazar_inzerat['inzerat']['size'] != "") $output .= '<p>Velikost: '. $skautbazar_inzerat['inzerat']['size'] .'</p>';
+						if(isset($skautbazar_inzerat['inzerat']['size']) && $skautbazar_inzerat['inzerat']['size'] != "")
+							$output .= '<p>'. __( 'Size', 'skautbazar' ) .': '. $skautbazar_inzerat['inzerat']['size'] .'</p>';
+						if(isset($skautbazar_inzerat['inzerat']['amount']) && $skautbazar_inzerat['inzerat']['amount'] != "" && $skautbazar_inzerat['inzerat']['amount'] != 1)
+							$output .= '<p>'. __( 'Amount', 'skautbazar' ) .': '. $skautbazar_inzerat['inzerat']['amount'] .'</p>';
 
 						$output .= '<p>'. __( 'Contact', 'skautbazar' ) .': ' . $skautbazar_inzerat['inzerat']['name'] . ' ' . $skautbazar_inzerat['inzerat']['lastname'] . '</p>';
 						$output .= '<p>'. __('E-mail', 'skautbazar') .': ' . $skautbazar_inzerat['inzerat']['email'] . '</p>';
@@ -960,7 +969,7 @@ public function init()
 		$message .= __( 'in your bazar', 'skautbazar' ) . "\n";
 		$message .= __( 'Reserved to e-mail', 'skautbazar' ) . ': ' . $skautbazar_inzerat['inzerat']['buyer_email'] . "\n\n";
 		if ($skautbazar_option['allow_buyer_message']) {
-			$message .= __( 'Message from potential buyer', 'skautbazar' ) . ': ' . $skautbazar_inzerat['inzerat']['buyer_message'] . "\n\n";
+			$message .= __( 'Message from buyer', 'skautbazar' ) . ': ' . $skautbazar_inzerat['inzerat']['buyer_message'] . "\n\n";
 		}
 		$message .= __( 'Please reply him as soon as possible.', 'skautbazar' ) . "\n";
 

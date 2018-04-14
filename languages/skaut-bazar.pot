@@ -348,7 +348,7 @@ msgstr ""
 
 # Newly added strings
 
-msgid "Message from potential buyer"
+msgid "Message from buyer"
 msgstr ""
 
 msgid "Message to seller"
@@ -357,8 +357,11 @@ msgstr ""
 msgid "Plugin settings"
 msgstr ""
 
-msgid "Allow message from potential buyer to the seller"
+msgid "Allow message from buyer to the seller"
 msgstr ""
 
 msgid "Disable author lastname field"
+msgstr ""
+
+msgid "Amount"
 msgstr ""
