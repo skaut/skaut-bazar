@@ -4,7 +4,7 @@
 Plugin name: Skaut bazar
 Plugin URI: https://wordpress.org/plugins/skaut-bazar
 Description: Bazar pro skautské oddíly
-Version: 1.2
+Version: 1.3
 Author: Junák - český skaut
 Author URI: http://dobryweb.skauting.cz/
 License: GPL2
