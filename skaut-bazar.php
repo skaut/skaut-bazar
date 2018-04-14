@@ -492,10 +492,12 @@ public function init()
 		<?php $skautbazar_option = get_option('skautbazar_option'); ?>
 
 			<table class="skautbazar_table">
-				<tr>
-					<td><?php _e( 'Inzerat no.', 'skautbazar' ) ?></td>
-					<td><?php echo get_the_title( $post ) ?></td>
-				</tr>
+				<?php if (get_the_title( $post )): ?>
+					<tr>
+						<td><?php _e( 'Inzerat no.', 'skautbazar' ) ?></td>
+						<td><?php echo get_the_title( $post ) ?></td>
+					</tr>
+				<?php endif; ?>
 				<tr>
 					<td><?php _e( 'Inzerat title', 'skautbazar' ) ?> *:</td>
 					<td><input type="text" name="skautbazar_title" id="skautbazar_title" class="required" value="<?php echo isset( $skautbazar_inzerat['inzerat']['title'] ) ? $skautbazar_inzerat['inzerat']['title'] : '' ?>"></td>
