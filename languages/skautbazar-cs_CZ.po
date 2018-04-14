@@ -166,18 +166,14 @@ msgid "Next inzerat no."
 msgstr "Další číslo inzerátu"
 
 msgid "Last inzerat no."
-msgstr "Poslední číslo inezrátu"
+msgstr "Poslední číslo inzerátu"
 
 msgid "Save"
 msgstr "Uložit"
 
 
-
-
 msgid "Exchange for"
 msgstr "Výměna za"
-
-
 
 
 msgid "Inzerat no. "
@@ -187,21 +183,8 @@ msgid "Contact"
 msgstr "Kontakt"
 
 
-
-
-
-
-
-
-
-
-
-
-
 msgid "Interested"
 msgstr "Mám zájem"
-
-
 
 
 msgid "Enter your e-mail address to complete reservation"
@@ -221,8 +204,6 @@ msgstr "Rezervace inzerátu"
 
 msgid "E-mail address is not valid"
 msgstr "E-mailová adresa není platná"
-
-
 
 
 msgid "Item was reserved for your e-mail address"
@@ -265,7 +246,7 @@ msgid "Tag"
 msgstr "Štítek"
 
 
-msgid "Message from potential buyer"
+msgid "Message from buyer"
 msgstr "Zpráva od zájemce"
 
 msgid "Message to seller"
@@ -274,8 +255,17 @@ msgstr "Zpráva pro nabízejícího"
 msgid "Plugin settings"
 msgstr "Nastavení pluginu"
 
-msgid "Allow message from potential buyer to the seller"
+msgid "Allow message from buyer to the seller"
 msgstr "Povolit zprávu od zájemce pro nabízejícího"
 
 msgid "Disable author lastname field"
 msgstr "Deaktivovat pole pro příjmení"
+
+msgid "Amount"
+msgstr "Množství"
+
+msgid "Required fields"
+msgstr "Požadovaná pole"
+
+msgid "Hide inzerat number"
+msgstr "Nezobrazovat čísla inzerátů"
