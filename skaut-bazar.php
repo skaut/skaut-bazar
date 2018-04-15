@@ -1,14 +1,13 @@
 <?php
 
-/*
-Plugin name: Skaut bazar
-Plugin URI: https://wordpress.org/plugins/skaut-bazar
-Description: Bazar pro skautské oddíly
-Version: 1.3
-Author: Junák - český skaut
-Author URI: https://dobryweb.skauting.cz/
-License: GPL2
-Text Domain: skaut-bazar
+/**
+ * Plugin name: Skaut bazar
+ * Plugin URI: https://github.com/skaut/skaut-bazar
+ * Description: Bazar pro skautské oddíly
+ * Version: 1.3
+ * Author: Junák - český skaut
+ * Author URI: https://dobryweb.skauting.cz/
+ * Text Domain: skaut-bazar
 */
 
 class skaut_bazar
