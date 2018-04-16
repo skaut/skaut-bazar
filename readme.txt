@@ -63,6 +63,9 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 
 == Changelog ==
 
+= 1.3.1 =
+* doplněna možnost překladů přímo na WordPres.org
+
 = 1.3 =
 * přidána možnost zaslat nabízejícímu zprávu
 * přidána možnost skrýt příjmení
