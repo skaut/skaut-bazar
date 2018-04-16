@@ -25,7 +25,7 @@ Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytv�
 **Nápady na nové fukce**
 
 Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
-[https://cs.wordpress.org/support/plugin/skaut-bazar](https://cs.wordpress.org/support/plugin/skaut-bazar)
+[https://github.com/skaut/skaut-bazar/issues/15](https://github.com/skaut/skaut-bazar/issues/15)
 
 == Installation ==
 
