@@ -3,7 +3,7 @@ Contributors: skaut, kalich5, davidulus, rbrounek, kulikjak
 Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 4.6
 Tested up to: 5.0
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
