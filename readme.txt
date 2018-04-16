@@ -1,7 +1,7 @@
 ﻿=== Skaut bazar ===
 Contributors: skaut, kalich5, davidulus, rbrounek, kulikjak
 Tags: bazar, skaut, multisite, plugin, shortcode, 
-Requires at least: 4.0
+Requires at least: 4.6
 Tested up to: 5.0
 Stable tag: 1.3
 License: GPLv2 or later
