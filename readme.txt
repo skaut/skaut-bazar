@@ -1,11 +1,11 @@
 ﻿=== Skaut bazar ===
-Contributors: skaut, kalich5, davidulus, kulikjak
+Contributors: skaut, kalich5, davidulus, kulikjak, rbrounek
 Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 4.6
 Tested up to: 5.0
 Stable tag: 1.3.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Implementace jednoduchého bazaru s možností online rezervace přes email
 
