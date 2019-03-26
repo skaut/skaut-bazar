@@ -6,7 +6,7 @@
  * Description: Bazar for Scout troops
  * Version: 1.3.2
  * Author: Junák - český skaut
- * Author URI: https://dobryweb.skauting.cz/
+ * Author URI: https://github.com/skaut
  * Text Domain: skaut-bazar
 */
 
