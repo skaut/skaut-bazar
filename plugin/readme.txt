@@ -3,7 +3,7 @@ Contributors: skaut, kalich5, davidulus, kulikjak, rbrounek
 Tags: bazar, skaut, multisite, plugin, shortcode, 
 Requires at least: 5.0
 Tested up to: 5.7
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -62,6 +62,8 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 4. Nastavení
 
 == Changelog ==
+= 1.3.3 =
+* oprava chyb
 
 = 1.3.2 =
 * minimální verze WordPressu 4.9.6
