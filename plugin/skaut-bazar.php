@@ -654,7 +654,7 @@ public function init()
 
 		<div class="wrap">
 			<h2><?php _e( 'Skaut bazar settings', 'skaut-bazar') ?></h2>
-			<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=skatubazar_option">
+			<form method="post" action="<?php echo esc_url( $_SERVER['PHP_SELF'] ); ?>?page=skatubazar_option">
 				<h3> <?php _e('Plugin settings', 'skaut-bazar') ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
