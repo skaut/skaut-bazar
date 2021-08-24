@@ -10,8 +10,65 @@
  * Text Domain: skaut-bazar
  */
 
-class skaut_bazar {
+namespace SkautBazar;
 
+/**
+ * Registers a script file
+ *
+ * Registers a script so that it can later be enqueued by `wp_enqueue_script()`.
+ *
+ * @param string $handle A unique handle to identify the script with. This handle should be passed to `wp_enqueue_script()`.
+ * @param string $src Path to the file, relative to the plugin directory.
+ * @param array  $deps A list of dependencies of the script. These can be either system dependencies like jquery, or other registered scripts. Default [].
+ */
+function register_script( $handle, $src, $deps = array() ) {
+	$file = plugin_dir_path( __FILE__ ) . $src;
+	wp_register_script( $handle, plugin_dir_url( __FILE__ ) . $src, $deps, file_exists( $file ) ? filemtime( $file ) : false, true );
+}
+
+/**
+ * Registers a style file
+ *
+ * Registers a style so that it can later be enqueued by `wp_enqueue_style()`.
+ *
+ * @param string $handle A unique handle to identify the style with. This handle should be passed to `wp_enqueue_style()`.
+ * @param string $src Path to the file, relative to the plugin directory.
+ * @param array  $deps A list of dependencies of the style. These can be either system dependencies or other registered styles. Default [].
+ */
+function register_style( $handle, $src, $deps = array() ) {
+	$file = plugin_dir_path( __FILE__ ) . $src;
+	wp_register_style( $handle, plugin_dir_url( __FILE__ ) . $src, $deps, file_exists( $file ) ? filemtime( $file ) : false );
+}
+
+/**
+ * Enqueues a script file
+ *
+ * Registers and immediately enqueues a script. Note that you should **not** call this function if you've previously registered the script using `register_script()`.
+ *
+ * @param string $handle A unique handle to identify the script with.
+ * @param string $src Path to the file, relative to the plugin directory.
+ * @param array  $deps A list of dependencies of the script. These can be either system dependencies like jquery, or other registered scripts. Default [].
+ */
+function enqueue_script( $handle, $src, $deps = array() ) {
+	register_script( $handle, $src, $deps );
+	wp_enqueue_script( $handle );
+}
+
+/**
+ * Enqueues a style file
+ *
+ * Registers and immediately enqueues a style. Note that you should **not** call this function if you've previously registered the style using `register_style()`.
+ *
+ * @param string $handle A unique handle to identify the style with.
+ * @param string $src Path to the file, relative to the plugin directory.
+ * @param array  $deps A list of dependencies of the style. These can be either system dependencies or other registered styles. Default [].
+ */
+function enqueue_style( $handle, $src, $deps = array() ) {
+	register_style( $handle, $src, $deps );
+	wp_enqueue_style( $handle );
+}
+
+class Bazar {
 
 	public function __construct() {
 		if ( is_admin() ) {
@@ -450,13 +507,11 @@ class skaut_bazar {
 
 
 	public function skautbazar_box_value( $post ) {
-		 wp_enqueue_script( 'jquery' );
 		wp_enqueue_media();
 
-		wp_register_style( 'skaut-bazar-admin', plugins_url( 'skaut-bazar/includes/css/admin.style.skautbazar.css' ) );
-		wp_enqueue_style( 'skaut-bazar-admin' );
+		enqueue_style( 'skaut-bazar-admin', 'includes/css/admin.style.skautbazar.css' );
 
-		wp_register_script( 'skaut-bazar-admin', plugins_url( 'skaut-bazar/includes/js/jquery.admin.skautbazar.js' ) );
+		register_script( 'skaut-bazar-admin', 'includes/js/jquery.admin.skautbazar.js', array( 'jquery' ) );
 		$translation = array(
 			'fill_required_field' => __( 'Please fill required field', 'skaut-bazar' ),
 			'active'              => __( 'Active, save changes', 'skaut-bazar' ),
@@ -782,11 +837,9 @@ class skaut_bazar {
 
 
 	function skautbazar_shortcode_output( $posts_number ) {
-		wp_register_style( 'skaut-bazar', plugins_url( 'skaut-bazar/includes/css/style.skautbazar.css' ) );
-		wp_enqueue_style( 'skaut-bazar' );
+		enqueue_style( 'skaut-bazar', 'includes/css/style.skautbazar.css' );
 
-		wp_register_script( 'skaut-bazar', plugins_url( 'skaut-bazar/includes/js/jquery.skautbazar.js' ) );
-		wp_enqueue_script( 'skaut-bazar' );
+		enqueue_script( 'skaut-bazar', 'includes/js/jquery.skautbazar.js' );
 
 		$ajax_nonce = wp_create_nonce( 'skautbazar-email-registering' );
 
@@ -1083,4 +1136,4 @@ class skaut_bazar {
 		return $o;
 	}
 }
-$skautbazar = new skaut_bazar();
+$skautbazar = new Bazar();
