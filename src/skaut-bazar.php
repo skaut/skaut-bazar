@@ -335,25 +335,25 @@ class skaut_bazar {
 			return;
 		}
 
-		$skautbazar_status        = sanitize_text_field( $_POST['skautbazar_status'] );
-		$skautbazar_title         = sanitize_text_field( $_POST['skautbazar_title'] );
-		$skautbazar_name          = sanitize_text_field( $_POST['skautbazar_firstname_inzerat_autor'] );
-		$skautbazar_lastname      = sanitize_text_field( $_POST['skautbazar_lastname_inzerat_autor'] );
-		$skautbazar_email         = sanitize_email( $_POST['skautbazar_email_inzerat_autor'] );
-		$skautbazar_telefon       = sanitize_text_field( $_POST['skautbazar_telefon_inzerat_autor'] );
-		$skautbazar_type          = sanitize_text_field( $_POST['skautbazar_type_author'] );
-		$skautbazar_type_price    = sanitize_text_field( $_POST['skautbazar_price'] );
-		$skautbazar_type_exchange = sanitize_text_field( $_POST['skautbazar_exchange'] );
-		$skautbazar_amount        = sanitize_text_field( $_POST['skautbazar_mnozstvi_inzerat_autor'] );
-		$skautbazar_size          = sanitize_text_field( $_POST['skautbazar_velikost_inzerat_autor'] );
-		$skautbazar_img           = sanitize_text_field( $_POST['skautbazar_image_id'] );
+		$skautbazar_status        = isset( $_POST['skautbazar_status'] ) ? sanitize_text_field( $_POST['skautbazar_status'] ) : '';
+		$skautbazar_title         = isset( $_POST['skautbazar_title'] ) ? sanitize_text_field( $_POST['skautbazar_title'] ) : '';
+		$skautbazar_name          = isset( $_POST['skautbazar_firstname_inzerat_autor'] ) ? sanitize_text_field( $_POST['skautbazar_firstname_inzerat_autor'] ) : '';
+		$skautbazar_lastname      = isset( $_POST['skautbazar_lastname_inzerat_autor'] ) ? sanitize_text_field( $_POST['skautbazar_lastname_inzerat_autor'] ) : '';
+		$skautbazar_email         = isset( $_POST['skautbazar_email_inzerat_autor'] ) ? sanitize_email( $_POST['skautbazar_email_inzerat_autor'] ) : '';
+		$skautbazar_telefon       = isset( $_POST['skautbazar_telefon_inzerat_autor'] ) ? sanitize_text_field( $_POST['skautbazar_telefon_inzerat_autor'] ) : '';
+		$skautbazar_type          = isset( $_POST['skautbazar_type_author'] ) ? sanitize_text_field( $_POST['skautbazar_type_author'] ) : '';
+		$skautbazar_type_price    = isset( $_POST['skautbazar_price'] ) ? sanitize_text_field( $_POST['skautbazar_price'] ) : '';
+		$skautbazar_type_exchange = isset( $_POST['skautbazar_exchange'] ) ? sanitize_text_field( $_POST['skautbazar_exchange'] ) : '';
+		$skautbazar_amount        = isset( $_POST['skautbazar_mnozstvi_inzerat_autor'] ) ? sanitize_text_field( $_POST['skautbazar_mnozstvi_inzerat_autor'] ) : '';
+		$skautbazar_size          = isset( $_POST['skautbazar_velikost_inzerat_autor'] ) ? sanitize_text_field( $_POST['skautbazar_velikost_inzerat_autor'] ) : '';
+		$skautbazar_img           = isset( $_POST['skautbazar_image_id'] ) ? sanitize_text_field( $_POST['skautbazar_image_id'] ) : '';
 
 		if ( $skautbazar_status == 1 ) {
 			$skautbazar_buyer_email   = '';
 			$skautbazar_buyer_message = '';
 		} else {
-			$skautbazar_buyer_email   = sanitize_email( $_POST['skautbazar_buyer_email'] );
-			$skautbazar_buyer_message = sanitize_text_field( $_POST['skautbazar_buyer_message'] );
+			$skautbazar_buyer_email   = isset( $_POST['skautbazar_buyer_email'] ) ? sanitize_email( $_POST['skautbazar_buyer_email'] ) : '';
+			$skautbazar_buyer_message = isset( $_POST['skautbazar_buyer_message'] ) ? sanitize_text_field( $_POST['skautbazar_buyer_message'] ) : '';
 		}
 
 		$skautbazar_item = array(
@@ -377,7 +377,9 @@ class skaut_bazar {
 
 		update_post_meta( $post_id, '_skautbazar_meta', $skautbazar_item );
 		update_post_meta( $post_id, 'skautbazar_status', $skautbazar_status );
-		update_post_meta( $post_id, '_skautbazar_meta_description', sanitize_meta( '_skautbazar_meta_description', $_POST['_skautbazar_meta_description'], 'post' ) );
+		if ( isset( $_POST['_skautbazar_meta_description'] ) ) {
+			update_post_meta( $post_id, '_skautbazar_meta_description', sanitize_meta( '_skautbazar_meta_description', $_POST['_skautbazar_meta_description'], 'post' ) );
+		}
 	}
 
 
@@ -631,24 +633,24 @@ class skaut_bazar {
 		$skautbazar_option = get_option( 'skautbazar_option' );
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'save' ) {
-			$skautbazar_option['default_author']['author_name']     = sanitize_text_field( $_POST['author_name'] );
-			$skautbazar_option['default_author']['author_lastname'] = sanitize_text_field( $_POST['author_lastname'] );
-			$skautbazar_option['default_author']['author_email']    = sanitize_email( $_POST['author_email'] );
-			$skautbazar_option['default_author']['author_tel']      = sanitize_text_field( $_POST['author_tel'] );
-			$skautbazar_option['default_currency']                  = sanitize_text_field( $_POST['currency'] );
-			$skautbazar_option['default_currency_position']         = sanitize_text_field( $_POST['default_currency_position'] );
-			$skautbazar_option['poradove_cislo']                    = intval( $_POST['poradove_cislo'] );
+			$skautbazar_option['default_author']['author_name']     = isset( $_POST['author_name'] ) ? sanitize_text_field( $_POST['author_name'] ) : '';
+			$skautbazar_option['default_author']['author_lastname'] = isset( $_POST['author_lastname'] ) ? sanitize_text_field( $_POST['author_lastname'] ) : '';
+			$skautbazar_option['default_author']['author_email']    = isset( $_POST['author_email'] ) ? sanitize_email( $_POST['author_email'] ) : '';
+			$skautbazar_option['default_author']['author_tel']      = isset( $_POST['author_tel'] ) ? sanitize_text_field( $_POST['author_tel'] ) : '';
+			$skautbazar_option['default_currency']                  = isset( $_POST['currency'] ) ? sanitize_text_field( $_POST['currency'] ) : '';
+			$skautbazar_option['default_currency_position']         = isset( $_POST['default_currency_position'] ) ? sanitize_text_field( $_POST['default_currency_position'] ) : '';
+			$skautbazar_option['poradove_cislo']                    = isset( $_POST['poradove_cislo'] ) ? intval( $_POST['poradove_cislo'] ) : 0;
 
-			$skautbazar_option['allow_buyer_message']     = sanitize_text_field( $_POST['allow_buyer_message'] );
-			$skautbazar_option['disable_author_lastname'] = sanitize_text_field( $_POST['disable_author_lastname'] );
-			$skautbazar_option['hide_inzerat_number']     = sanitize_text_field( $_POST['hide_inzerat_number'] );
+			$skautbazar_option['allow_buyer_message']     = isset( $_POST['allow_buyer_message'] ) ? sanitize_text_field( $_POST['allow_buyer_message'] ) : '';
+			$skautbazar_option['disable_author_lastname'] = isset( $_POST['disable_author_lastname'] ) ? sanitize_text_field( $_POST['disable_author_lastname'] ) : '';
+			$skautbazar_option['hide_inzerat_number']     = isset( $_POST['hide_inzerat_number'] ) ? sanitize_text_field( $_POST['hide_inzerat_number'] ) : '';
 
-			$skautbazar_option['required_fields']['author_name']     = sanitize_text_field( $_POST['req_author_name'] );
-			$skautbazar_option['required_fields']['author_lastname'] = sanitize_text_field( $_POST['req_author_lastname'] );
-			$skautbazar_option['required_fields']['image']           = sanitize_text_field( $_POST['req_image'] );
-			$skautbazar_option['required_fields']['phone']           = sanitize_text_field( $_POST['req_phone'] );
-			$skautbazar_option['required_fields']['amount']          = sanitize_text_field( $_POST['req_amount'] );
-			$skautbazar_option['required_fields']['size']            = sanitize_text_field( $_POST['req_size'] );
+			$skautbazar_option['required_fields']['author_name']     = isset( $_POST['req_author_name'] ) ? sanitize_text_field( $_POST['req_author_name'] ) : '';
+			$skautbazar_option['required_fields']['author_lastname'] = isset( $_POST['req_author_lastname'] ) ? sanitize_text_field( $_POST['req_author_lastname'] ) : '';
+			$skautbazar_option['required_fields']['image']           = isset( $_POST['req_image'] ) ? sanitize_text_field( $_POST['req_image'] ) : '';
+			$skautbazar_option['required_fields']['phone']           = isset( $_POST['req_phone'] ) ? sanitize_text_field( $_POST['req_phone'] ) : '';
+			$skautbazar_option['required_fields']['amount']          = isset( $_POST['req_amount'] ) ? sanitize_text_field( $_POST['req_amount'] ) : '';
+			$skautbazar_option['required_fields']['size']            = isset( $_POST['req_size'] ) ? sanitize_text_field( $_POST['req_size'] ) : '';
 
 			update_option( 'skautbazar_option', $skautbazar_option );
 		}
@@ -657,7 +659,7 @@ class skaut_bazar {
 
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
-			<form method="post" action="<?php echo esc_url( sanitize_file_name( $_SERVER['PHP_SELF'] ) ); ?>?page=skatubazar_option">
+			<form method="post" action="<?php echo isset( $_SERVER['PHP_SELF'] ) ? esc_url( sanitize_file_name( $_SERVER['PHP_SELF'] ) ) : ''; ?>?page=skatubazar_option">
 				<h3> <?php esc_html_e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
@@ -980,12 +982,12 @@ class skaut_bazar {
 	function skautbazar_rezervace() {
 		global $wpdb;
 
-		if ( ! is_email( $_POST['bazar_item_email'] ) ) {
+		if ( ! isset( $_POST['bazar_item_email'] ) || ! is_email( $_POST['bazar_item_email'] ) ) {
 			echo false;
 			wp_die();
 		}
 
-		$id = intval( $_POST['bazar_item_id'] );
+		$id = isset( $_POST['bazar_item_id'] ) ? intval( $_POST['bazar_item_id'] ) : 0;
 
 		if ( ! isset( $id ) ) {
 			echo false;
@@ -998,10 +1000,10 @@ class skaut_bazar {
 		$skautbazar_status  = get_post_meta( $id, 'skautbazar_status', true );
 
 		$skautbazar_status                            = 2;
-		$skautbazar_inzerat['inzerat']['buyer_email'] = sanitize_email( $_POST['bazar_item_email'] );
+		$skautbazar_inzerat['inzerat']['buyer_email'] = isset( $_POST['bazar_item_email'] ) ? sanitize_email( $_POST['bazar_item_email'] ) : '';
 
 		if ( $skautbazar_option['allow_buyer_message'] ) {
-			$skautbazar_inzerat['inzerat']['buyer_message'] = sanitize_text_field( $_POST['bazar_item_message'] );
+			$skautbazar_inzerat['inzerat']['buyer_message'] = isset( $_POST['bazar_item_message'] ) ? sanitize_text_field( $_POST['bazar_item_message'] ): '';
 		}
 
 		update_post_meta( $id, '_skautbazar_meta', $skautbazar_inzerat );
