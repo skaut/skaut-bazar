@@ -163,7 +163,7 @@ class skaut_bazar {
 
 		if ( isset( $_GET['skautbazar_status'] ) ) {
 			$query->query_vars['meta_key']   = 'skautbazar_status';
-			$query->query_vars['meta_value'] = $_GET['skautbazar_status'];
+			$query->query_vars['meta_value'] = intval( $_GET['skautbazar_status'] );
 		}
 	}
 
@@ -377,7 +377,7 @@ class skaut_bazar {
 
 		update_post_meta( $post_id, '_skautbazar_meta', $skautbazar_item );
 		update_post_meta( $post_id, 'skautbazar_status', $skautbazar_status );
-		update_post_meta( $post_id, '_skautbazar_meta_description', $_POST['_skautbazar_meta_description'] );
+		update_post_meta( $post_id, '_skautbazar_meta_description', sanitize_meta( '_skautbazar_meta_description', $_POST['_skautbazar_meta_description'], 'post' ) );
 	}
 
 
@@ -637,7 +637,7 @@ class skaut_bazar {
 			$skautbazar_option['default_author']['author_tel']      = sanitize_text_field( $_POST['author_tel'] );
 			$skautbazar_option['default_currency']                  = sanitize_text_field( $_POST['currency'] );
 			$skautbazar_option['default_currency_position']         = sanitize_text_field( $_POST['default_currency_position'] );
-			$skautbazar_option['poradove_cislo']                    = $_POST['poradove_cislo'];
+			$skautbazar_option['poradove_cislo']                    = intval( $_POST['poradove_cislo'] );
 
 			$skautbazar_option['allow_buyer_message']     = sanitize_text_field( $_POST['allow_buyer_message'] );
 			$skautbazar_option['disable_author_lastname'] = sanitize_text_field( $_POST['disable_author_lastname'] );
@@ -657,7 +657,7 @@ class skaut_bazar {
 
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
-			<form method="post" action="<?php echo esc_url( $_SERVER['PHP_SELF'] ); ?>?page=skatubazar_option">
+			<form method="post" action="<?php echo esc_url( sanitize_file_name( $_SERVER['PHP_SELF'] ) ); ?>?page=skatubazar_option">
 				<h3> <?php esc_html_e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
@@ -791,7 +791,7 @@ class skaut_bazar {
 
 		wp_localize_script( 'skaut-bazar', 'ajax_object', $translation );
 
-		$skautbazar_paged = isset( $_GET['skautbazar_paged'] ) ? $_GET['skautbazar_paged'] : 1;
+		$skautbazar_paged = isset( $_GET['skautbazar_paged'] ) ? intval( $_GET['skautbazar_paged'] ) : 1;
 
 		$args = array(
 			'post_type'     => 'skautbazar',
@@ -813,12 +813,12 @@ class skaut_bazar {
 		);
 
 		if ( isset( $_GET['skautbazar-cat'] ) ) {
-			$args['cat'] = $_GET['skautbazar-cat'];
+			$args['cat'] = sanitize_text_field( $_GET['skautbazar-cat'] );
 			// echo '<h2>'. _e( 'Category', 'skaut-bazar') .': </h2>';
 		}
 
 		if ( isset( $_GET['skautbazar-tag'] ) ) {
-			$args['tag'] = $_GET['skautbazar-tag'];
+			$args['tag'] = sanitize_text_field( $_GET['skautbazar-tag'] );
 			// echo '<h2>'. _e( 'Tag', 'skaut-bazar') .': </h2>';
 		}
 
@@ -998,10 +998,10 @@ class skaut_bazar {
 		$skautbazar_status  = get_post_meta( $id, 'skautbazar_status', true );
 
 		$skautbazar_status                            = 2;
-		$skautbazar_inzerat['inzerat']['buyer_email'] = $_POST['bazar_item_email'];
+		$skautbazar_inzerat['inzerat']['buyer_email'] = sanitize_email( $_POST['bazar_item_email'] );
 
 		if ( $skautbazar_option['allow_buyer_message'] ) {
-			$skautbazar_inzerat['inzerat']['buyer_message'] = $_POST['bazar_item_message'];
+			$skautbazar_inzerat['inzerat']['buyer_message'] = sanitize_text_field( $_POST['bazar_item_message'] );
 		}
 
 		update_post_meta( $id, '_skautbazar_meta', $skautbazar_inzerat );
