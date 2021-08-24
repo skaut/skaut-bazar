@@ -130,6 +130,7 @@ class Bazar {
 				),
 				'required_fields'           => array(
 					'author_name' => 1,
+					'author_lastname' => 1,
 					'image'       => 1,
 					'phone'       => 0,
 					'amount'      => 0,
