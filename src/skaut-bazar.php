@@ -183,15 +183,15 @@ class Bazar {
 		);
 
 		$query_active = '';
-		$query_active = new WP_Query( $args_reserved );
+		$query_active = new \WP_Query( $args_reserved );
 		$active_count = $query_active->found_posts;
 
 		$query_reserved = '';
-		$query_reserved = new WP_Query( $args_reserved );
+		$query_reserved = new \WP_Query( $args_reserved );
 		$reserved_count = $query_reserved->found_posts;
 
 		$query_archived = '';
-		$query_archived = new WP_Query( $args_archived );
+		$query_archived = new \WP_Query( $args_archived );
 		$archived_count = $query_archived->found_posts;
 
 		$views['active']   = '<a href="edit.php?skautbazar_status=1&post_type=skautbazar">' . __( 'Active', 'skaut-bazar' ) . '</a>';
@@ -888,7 +888,7 @@ class Bazar {
 		global $post;
 		$current_id = $post->ID;
 
-		$query  = new WP_Query( $args );
+		$query  = new \WP_Query( $args );
 		$output = '';
 
 		$total = $query->max_num_pages;
