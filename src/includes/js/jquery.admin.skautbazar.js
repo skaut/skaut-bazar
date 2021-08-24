@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
 
 
 	$('#post').submit(function(e) {
-		$('.required-info, .skatubazar_error').remove();
+		$('.required-info, .skautbazar_error').remove();
 		var error = true;
 
 		$('.required').each(function() {
@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
 		}
 
 		if (!error) {
-			$('.wrap h2').after('<div class="error skatubazar_error"><p>' + translation.fill_required_field + '</p></div>');
+			$('.wrap h2').after('<div class="error skautbazar_error"><p>' + translation.fill_required_field + '</p></div>');
 			e.preventDefault();
 		}
 	});
