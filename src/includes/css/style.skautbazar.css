@@ -31,22 +31,22 @@
 	clear: both;
 }
 
-.skatubazar_post_img{
+.skautbazar_post_img{
 	width: 44%;
 	float: left;
 }
 
-.skatubazar_post_img img{
+.skautbazar_post_img img{
 	width: 100%;
 	height: auto;
 }
 
-.skatubazar_post_img img{
+.skautbazar_post_img img{
 	width: 100%;
 	height: auto;
 }
 
-.skatubazar_post_box{
+.skautbazar_post_box{
 	width: 55%;
 	float: right;
 }
@@ -64,7 +64,7 @@
 	padding: 20px 0;
 }
 
-.skatubazar_post_category{
+.skautbazar_post_category{
 	padding: 20px 0;
 }
 
@@ -167,10 +167,10 @@ body{
 }
 
 @media screen and (max-width: 460px) {
-	.skatubazar_post_img,
-	.skatubazar_post_box,
+	.skautbazar_post_img,
+	.skautbazar_post_box,
 	.skautbazar_prev_img,
-	.skatubazar_post_category,
+	.skautbazar_post_category,
 	.skautbazar_infotext,
 	.skautbazar_infotext,
 	.skautbazar_rezervace{
@@ -192,7 +192,7 @@ body{
 		padding: 0;
 	}
 
-	.skatubazar_post_box{
+	.skautbazar_post_box{
 		margin-top: 10px;
 	}
 

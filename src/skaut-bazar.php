@@ -59,7 +59,7 @@ class skaut_bazar {
 	public function init() {
 		flush_rewrite_rules();
 		if ( ! get_option( 'skautbazar_option' ) ) {
-			$skatubazar_option = array(
+			$skautbazar_option = array(
 				'status'                    => array(
 					1 => 'active',
 					2 => 'reserverd',
@@ -85,7 +85,7 @@ class skaut_bazar {
 				'disable_author_lastname'   => 0,
 				'hide_inzerat_number'       => 0,
 			);
-			add_option( 'skautbazar_option', $skatubazar_option );
+			add_option( 'skautbazar_option', $skautbazar_option );
 		}
 
 		$this->registerNewCapabilities();
@@ -474,9 +474,7 @@ class skaut_bazar {
 			3 => __( 'Archived', 'skaut-bazar' ),
 		);
 
-		?>
-
-		<?php $skautbazar_option = get_option( 'skautbazar_option' ); ?>
+		$skautbazar_option = get_option( 'skautbazar_option' ); ?>
 
 			<table class="skautbazar_table">
 				<?php if ( get_the_title( $post ) ) : ?>
@@ -624,12 +622,12 @@ class skaut_bazar {
 
 	// Options page
 	public function skautbazar_option_page() {
-		add_options_page( 'Skaut bazar', 'Skaut bazar', 'manage_options', 'skatubazar_option', array( $this, 'skatubazar_option_callback' ) );
+		add_options_page( 'Skaut bazar', 'Skaut bazar', 'manage_options', 'skautbazar_option', array( $this, 'skautbazar_option_callback' ) );
 	}
 
 
 	// Skautbazar settings
-	public function skatubazar_option_callback() {
+	public function skautbazar_option_callback() {
 		$skautbazar_option = get_option( 'skautbazar_option' );
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'save' ) {
@@ -659,7 +657,7 @@ class skaut_bazar {
 
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
-			<form method="post" action="<?php echo isset( $_SERVER['PHP_SELF'] ) ? esc_url( sanitize_file_name( wp_unslash( $_SERVER['PHP_SELF'] ) ) ) : ''; ?>?page=skatubazar_option">
+			<form method="post" action="<?php echo isset( $_SERVER['PHP_SELF'] ) ? esc_url( sanitize_file_name( wp_unslash( $_SERVER['PHP_SELF'] ) ) ) : ''; ?>?page=skautbazar_option">
 				<h3> <?php esc_html_e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
@@ -874,7 +872,7 @@ class skaut_bazar {
 
 			if ( isset( $skautbazar_inzerat['inzerat']['img'] ) && $skautbazar_inzerat['inzerat']['img'] != '' ) :
 				$hasImage    = true;
-				$output     .= '<div class="skatubazar_post_img">';
+				$output     .= '<div class="skautbazar_post_img">';
 					$output .= '<p class="skautbazar_prev_img">' . wp_get_attachment_link( $skautbazar_inzerat['inzerat']['img'], 'medium', false, true ) . '</p>';
 				$output     .= '</div>';
 				else :
@@ -882,7 +880,7 @@ class skaut_bazar {
 					$customClass = ' skautbazar_post_box_full';
 				endif;
 
-				$output     .= '<div class="skatubazar_post_box' . $customClass . '">';
+				$output     .= '<div class="skautbazar_post_box' . $customClass . '">';
 					$output .= '<h2 class="skautbazar_post_heading">' . $skautbazar_inzerat['inzerat']['title'] . '</h2>';
 					$output .= '<div class="skautbazar_post_info">';
 				if ( ! $skautbazar_option['hide_inzerat_number'] ) {
@@ -915,7 +913,7 @@ class skaut_bazar {
 					$output .= apply_filters( 'the_content', $skautbazar_description );
 					$output .= '<div class="skautbazar_clear"></div>';
 
-					$output .= '<div class="skatubazar_post_category">';
+					$output .= '<div class="skautbazar_post_category">';
 				if ( $category ) {
 					$end     = end( $category );
 					$output .= '<p class="skautbazar_infotext">' . __( 'Category', 'skaut-bazar' ) . ': ';
