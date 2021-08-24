@@ -1,3 +1,6 @@
+		if ( ! isset( $_POST[ 'skautbazar_meta_box_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_meta_box_nonce' ] ) ), 'skautbazar_meta_box' ) ) {
+			return;
+		}
 function validateEmail($email) {
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     return emailReg.test($email);
@@ -32,6 +35,7 @@ jQuery(document).ready(function($) {
 
         var data = {
             'action': 'skautbazar_rezervace',
+            _ajax_nonce: ajax_object.ajax_nonce.
             'bazar_item_id': id,
             'bazar_item_email': email,
             'bazar_item_message': message

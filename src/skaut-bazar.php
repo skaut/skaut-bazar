@@ -323,6 +323,10 @@ class skaut_bazar {
 			return;
 		}
 
+		if ( ! isset( $_POST[ 'skautbazar_meta_box_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_meta_box_nonce' ] ) ), 'skautbazar_meta_box' ) ) {
+			return;
+		}
+
 		if ( ! isset( $_POST['skautbazar_firstname_inzerat_autor'] ) ) {
 			return;
 		}
@@ -631,6 +635,9 @@ class skaut_bazar {
 		$skautbazar_option = get_option( 'skautbazar_option' );
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'save' ) {
+			if ( ! isset( $_POST[ 'skautbazar_options_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_options_nonce' ] ) ), 'skautbazar_options' ) ) {
+				return;
+			}
 			$skautbazar_option['default_author']['author_name']     = isset( $_POST['author_name'] ) ? sanitize_text_field( wp_unslash( $_POST['author_name'] ) ) : '';
 			$skautbazar_option['default_author']['author_lastname'] = isset( $_POST['author_lastname'] ) ? sanitize_text_field( wp_unslash( $_POST['author_lastname'] ) ) : '';
 			$skautbazar_option['default_author']['author_email']    = isset( $_POST['author_email'] ) ? sanitize_email( wp_unslash( $_POST['author_email'] ) ) : '';
@@ -658,6 +665,9 @@ class skaut_bazar {
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
 			<form method="post" action="<?php echo isset( $_SERVER['PHP_SELF'] ) ? esc_url( sanitize_file_name( wp_unslash( $_SERVER['PHP_SELF'] ) ) ) : ''; ?>?page=skautbazar_option">
+				<?php
+					wp_nonce_field( 'skautbazar_options', 'skautbazar_options_nonce' );
+				?>
 				<h3> <?php esc_html_e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
@@ -979,6 +989,8 @@ class skaut_bazar {
 
 	function skautbazar_rezervace() {
 		global $wpdb;
+
+		check_ajax_referer( 'skautbazar-email-registering' );
 
 		if ( ! isset( $_POST['bazar_item_email'] ) || ! is_email( wp_unslash( $_POST['bazar_item_email'] ) ) ) {
 			echo false;
