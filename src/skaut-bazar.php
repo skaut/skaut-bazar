@@ -77,7 +77,7 @@ class Bazar {
 		}
 
 		register_activation_hook( __FILE__, array( $this, 'init' ) );
-		register_uninstall_hook( __FILE__, array( $this, 'unregisterNewCapabilities' ) );
+		register_uninstall_hook( __FILE__, array( 'SkautBazar\\Bazar', 'unregisterNewCapabilities' ) );
 
 		// actions
 		add_action( 'init', array( &$this, 'skautbazar_cpt' ) );
@@ -275,7 +275,7 @@ class Bazar {
 		$admins->add_cap( 'read_bazar' );
 	}
 
-	private function unregisterNewCapabilities() {
+	private static function unregisterNewCapabilities() {
 		global $wp_roles;
 		$deleteCaps = array(
 			'publish_bazars',
