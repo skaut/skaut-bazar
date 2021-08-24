@@ -255,16 +255,16 @@ class skaut_bazar {
 
 		switch ( $status ) {
 			case 1:
-				return _e( 'Active', 'skaut-bazar' );
+				return __( 'Active', 'skaut-bazar' );
 
 			case 2:
-				return _e( 'Reserved', 'skaut-bazar' );
+				return __( 'Reserved', 'skaut-bazar' );
 
 			case 3:
-				return _e( 'Archive', 'skaut-bazar' );
+				return __( 'Archive', 'skaut-bazar' );
 
 			default:
-				return _e( 'Unknown', 'skaut-bazar' );
+				return __( 'Unknown', 'skaut-bazar' );
 		}
 	}
 
@@ -291,13 +291,14 @@ class skaut_bazar {
 
 		switch ( $column ) {
 			case 'custom_title':
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo $this->skautbazar_get_inzerat_no( $post_id );
 				break;
 			case 'status':
-				echo $this->skautbazar_get_status_value( $post_id );
+				echo esc_html( $this->skautbazar_get_status_value( $post_id ) );
 				break;
 			case 'inzerat_name':
-				echo $this->skautbazar_get_inzerat_name( $post_id );
+				echo esc_html( $this->skautbazar_get_inzerat_name( $post_id ) );
 				break;
 			default:
 				break;
@@ -478,75 +479,80 @@ class skaut_bazar {
 			<table class="skautbazar_table">
 				<?php if ( get_the_title( $post ) ) : ?>
 					<tr>
-						<td><?php _e( 'Inzerat no.', 'skaut-bazar' ); ?></td>
-						<td><?php echo get_the_title( $post ); ?></td>
+						<td><?php esc_html_e( 'Inzerat no.', 'skaut-bazar' ); ?></td>
+						<td>
+							<?php
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo get_the_title( $post );
+							?>
+						</td>
 					</tr>
 				<?php endif; ?>
 				<tr>
-					<td>*<?php _e( 'Inzerat title', 'skaut-bazar' ); ?>:</td>
-					<td><input type="text" name="skautbazar_title" id="skautbazar_title" class="required" value="<?php echo isset( $skautbazar_inzerat['inzerat']['title'] ) ? $skautbazar_inzerat['inzerat']['title'] : ''; ?>"></td>
+					<td>*<?php esc_html_e( 'Inzerat title', 'skaut-bazar' ); ?>:</td>
+					<td><input type="text" name="skautbazar_title" id="skautbazar_title" class="required" value="<?php echo isset( $skautbazar_inzerat['inzerat']['title'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['title'] ) : ''; ?>"></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php _e( 'Inzerat status', 'skaut-bazar' ); ?>:</td>
+					<td class="skautbazar_table_header"><?php esc_html_e( 'Inzerat status', 'skaut-bazar' ); ?>:</td>
 					<td>
 						<select name="skautbazar_status" id="skautbazar_status">
 							<?php foreach ( $statuses as $key => $option ) : ?>
-								<option value="<?php echo $key; ?>" <?php echo isset( $skautbazar_status ) && $skautbazar_status == $key ? ' selected' : ''; ?>><?php echo $option; ?></option>
+								<option value="<?php echo esc_attr( $key ); ?>" <?php echo isset( $skautbazar_status ) && $skautbazar_status == $key ? ' selected' : ''; ?>><?php echo esc_html( $option ); ?></option>
 							<?php endforeach; ?>
 						</select>					
 
 					</td>
 				</tr>
 				<tr class="skautbazar_row_hidden" id="skautbazar_row_reservation_email">
-					<td class="skautbazar_table_header"><?php _e( 'Reservation to e-mail', 'skaut-bazar' ); ?>:</td>
-					<td><input type="email" name="skautbazar_buyer_email" id="skautbazar_buyer_email" value="<?php echo isset( $skautbazar_inzerat['inzerat']['buyer_email'] ) ? sanitize_email( $skautbazar_inzerat['inzerat']['buyer_email'] ) : ''; ?>"></td>
+					<td class="skautbazar_table_header"><?php esc_html_e( 'Reservation to e-mail', 'skaut-bazar' ); ?>:</td>
+					<td><input type="email" name="skautbazar_buyer_email" id="skautbazar_buyer_email" value="<?php echo isset( $skautbazar_inzerat['inzerat']['buyer_email'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['buyer_email'] ) : ''; ?>"></td>
 				</tr>
 				<tr class="skautbazar_row_hidden" id="skautbazar_row_reservation_message">
-					<td class="skautbazar_table_header"><?php _e( 'Message from buyer', 'skaut-bazar' ); ?>:</td>
-					<td><textarea name="skautbazar_buyer_message" id="skautbazar_buyer_message" disabled><?php echo isset( $skautbazar_inzerat['inzerat']['buyer_message'] ) ? $skautbazar_inzerat['inzerat']['buyer_message'] : ''; ?></textarea></td>
+					<td class="skautbazar_table_header"><?php esc_html_e( 'Message from buyer', 'skaut-bazar' ); ?>:</td>
+					<td><textarea name="skautbazar_buyer_message" id="skautbazar_buyer_message" disabled><?php echo isset( $skautbazar_inzerat['inzerat']['buyer_message'] ) ? esc_html( $skautbazar_inzerat['inzerat']['buyer_message'] ) : ''; ?></textarea></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['image'] == 1 ) ? '*' : ''; ?><?php _e( 'Picture', 'skaut-bazar' ); ?>:</td>
+					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['image'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Picture', 'skaut-bazar' ); ?>:</td>
 					<td>					
 						<?php if ( isset( $skautbazar_inzerat['inzerat']['img'] ) ) : ?>
 							<?php $img_id = $skautbazar_inzerat['inzerat']['img']; ?>
 							<?php $img_attr = wp_get_attachment_image_src( $skautbazar_inzerat['inzerat']['img'] ); ?>
-							<input type="hidden" value="<?php echo $skautbazar_inzerat['inzerat']['img']; ?>" class="regular-text process_custom_images <?php echo ( $skautbazar_option['required_fields']['image'] == 1 ) ? 'required' : ''; ?>" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
-							<img style="width: 160px; height: auto" src="<?php echo $img_attr[0]; ?>" id="skautbazar_intro_image">
+							<input type="hidden" value="<?php echo esc_attr( $skautbazar_inzerat['inzerat']['img'] ); ?>" class="regular-text process_custom_images <?php echo ( $skautbazar_option['required_fields']['image'] == 1 ) ? 'required' : ''; ?>" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
+							<img style="width: 160px; height: auto" src="<?php echo esc_url( $img_attr[0] ); ?>" id="skautbazar_intro_image">
 						<?php else : ?>
 							<input type="hidden" value="" class="regular-text process_custom_images <?php echo ( $skautbazar_option['required_fields']['image'] == 1 ) ? 'required' : ''; ?>" id="skautbazar_image_id" name="skautbazar_image_id" max="" min="1" step="1">
 							<img style="display: none; width: 160px; height: auto" src="#" id="skautbazar_intro_image">
 						<?php endif; ?>
 						<div class="skautbazar_buttons">
-							<button class="skautbazar_intro_image_button button"><?php _e( 'Add picture', 'skaut-bazar' ); ?></button>
-							<button class="skautbazar_intro_image_delete_button button"> <?php _e( 'Delete picture', 'skaut-bazar' ); ?> </button>
+							<button class="skautbazar_intro_image_button button"><?php esc_html_e( 'Add picture', 'skaut-bazar' ); ?></button>
+							<button class="skautbazar_intro_image_delete_button button"> <?php esc_html_e( 'Delete picture', 'skaut-bazar' ); ?> </button>
 						</div>
 					</td>
 				</tr>
 
 				<?php if ( $skautbazar_option['disable_author_lastname'] ) : ?>
 					<tr>
-						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? '*' : ''; ?><?php _e( 'Name', 'skaut-bazar' ); ?>:</td>
-						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? 'class="required"' : ''; ?> value="<?php echo isset( $skautbazar_inzerat['inzerat']['name'] ) ? $skautbazar_inzerat['inzerat']['name'] : ( ( $skautbazar_option['default_author']['author_name'] ) ? $skautbazar_option['default_author']['author_name'] : wp_get_current_user()->display_name ); ?>" type="text" ></td>
+						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Name', 'skaut-bazar' ); ?>:</td>
+						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? 'class="required"' : ''; ?> value="<?php echo isset( $skautbazar_inzerat['inzerat']['name'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['name'] ) : ( ( $skautbazar_option['default_author']['author_name'] ) ? esc_attr( $skautbazar_option['default_author']['author_name'] ) : esc_attr( wp_get_current_user()->display_name ) ); ?>" type="text" ></td>
 					</tr>
 				<?php else : ?>
 					<tr>
-						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? '*' : ''; ?><?php _e( 'Name', 'skaut-bazar' ); ?>:</td>
-						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? 'class="required"' : ''; ?> value="<?php echo isset( $skautbazar_inzerat['inzerat']['name'] ) ? $skautbazar_inzerat['inzerat']['name'] : ( ( $skautbazar_option['default_author']['author_name'] ) ? $skautbazar_option['default_author']['author_name'] : wp_get_current_user()->user_firstname ); ?>" type="text" ></td>
+						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Name', 'skaut-bazar' ); ?>:</td>
+						<td><input name="skautbazar_firstname_inzerat_autor" id="skautbazar_firstname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_name'] == 1 ) ? 'class="required"' : ''; ?> value="<?php echo isset( $skautbazar_inzerat['inzerat']['name'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['name'] ) : ( ( $skautbazar_option['default_author']['author_name'] ) ? esc_attr( $skautbazar_option['default_author']['author_name'] ) : esc_attr( wp_get_current_user()->user_firstname ) ); ?>" type="text" ></td>
 					</tr>
 					<tr>
-						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_lastname'] == 1 ) ? '*' : ''; ?><?php _e( 'Last name', 'skaut-bazar' ); ?>:</td>
-						<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_lastname'] == 1 ) ? 'class="required"' : ''; ?> type="text" value="<?php echo isset( $skautbazar_inzerat['inzerat']['lastname'] ) ? $skautbazar_inzerat['inzerat']['lastname'] : ( ( $skautbazar_option['default_author']['author_lastname'] ) ? $skautbazar_option['default_author']['author_lastname'] : wp_get_current_user()->user_lastname ); ?>"></td>
+						<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['author_lastname'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Last name', 'skaut-bazar' ); ?>:</td>
+						<td><input name="skautbazar_lastname_inzerat_autor" id="skautbazar_lastname_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['author_lastname'] == 1 ) ? 'class="required"' : ''; ?> type="text" value="<?php echo isset( $skautbazar_inzerat['inzerat']['lastname'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['lastname'] ) : ( ( $skautbazar_option['default_author']['author_lastname'] ) ? esc_attr( $skautbazar_option['default_author']['author_lastname'] ) : esc_attr( wp_get_current_user()->user_lastname ) ); ?>"></td>
 					</tr>
 				<?php endif; ?>
 
 				<tr>
-					<td class="skautbazar_table_header">*<?php _e( 'E-mail', 'skaut-bazar' ); ?>:</td>
-					<td><input name="skautbazar_email_inzerat_autor" id="skautbazar_email_inzerat_autor" class="required" type="email" value="<?php echo isset( $skautbazar_inzerat['inzerat']['email'] ) ? $skautbazar_inzerat['inzerat']['email'] : ( ( $skautbazar_option['default_author']['author_email'] ) ? $skautbazar_option['default_author']['author_email'] : wp_get_current_user()->user_email ); ?>"></td>
+					<td class="skautbazar_table_header">*<?php esc_html_e( 'E-mail', 'skaut-bazar' ); ?>:</td>
+					<td><input name="skautbazar_email_inzerat_autor" id="skautbazar_email_inzerat_autor" class="required" type="email" value="<?php echo isset( $skautbazar_inzerat['inzerat']['email'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['email'] ) : ( ( $skautbazar_option['default_author']['author_email'] ) ? esc_attr( $skautbazar_option['default_author']['author_email'] ) : esc_attr( wp_get_current_user()->user_email ) ); ?>"></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['phone'] == 1 ) ? '*' : ''; ?><?php _e( 'Telephone', 'skaut-bazar' ); ?>:</td>
-					<td><input name="skautbazar_telefon_inzerat_autor" id="skautbazar_telefon_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['phone'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['telefon'] ) ? $skautbazar_inzerat['inzerat']['telefon'] : $skautbazar_option['default_author']['author_tel']; ?>"></td>
+					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['phone'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Telephone', 'skaut-bazar' ); ?>:</td>
+					<td><input name="skautbazar_telefon_inzerat_autor" id="skautbazar_telefon_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['phone'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['telefon'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['telefon'] ) : esc_attr( $skautbazar_option['default_author']['author_tel'] ); ?>"></td>
 				</tr>
 
 				<?php
@@ -560,44 +566,44 @@ class skaut_bazar {
 					?>
 
 				<tr>
-					<td class="skautbazar_table_header">*<?php _e( 'Sell as', 'skaut-bazar' ); ?>:</td>
+					<td class="skautbazar_table_header">*<?php esc_html_e( 'Sell as', 'skaut-bazar' ); ?>:</td>
 					<td>
 						<select name="skautbazar_type_author" id="skautbazar_type_author" class="skautbazar_type required">
 							<?php foreach ( $skautbazar_type as $key => $typ ) : ?>
-								<option <?php echo isset( $skautbazar_inzerat['inzerat']['type'] ) && $skautbazar_inzerat['inzerat']['type'] == $key ? 'selected="selected"' : ''; ?>  value="<?php echo $key; ?>"><?php echo $typ; ?></option>
+								<option <?php echo isset( $skautbazar_inzerat['inzerat']['type'] ) && $skautbazar_inzerat['inzerat']['type'] == $key ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $typ ); ?></option>
 							<?php endforeach; ?>
 
 						</select>
 					</td>				
 				</tr>
 				<tr class="skautbazar_row_hidden" id="skautbazar_row_price">
-					<td class="skautbazar_table_header">*<?php _e( 'Price for item', 'skaut-bazar' ); ?>:</td>
+					<td class="skautbazar_table_header">*<?php esc_html_e( 'Price for item', 'skaut-bazar' ); ?>:</td>
 					<td>
 						<?php
 						if ( isset( $skautbazar_option['default_currency_position'] ) && $skautbazar_option['default_currency_position'] == 'left' ) {
-							echo $skautbazar_option['default_currency'] . ' ';}
+							echo esc_html( $skautbazar_option['default_currency'] ) . ' ';}
 						?>
-						<input type="text" name="skautbazar_price" id="skautbazar_price" value="<?php echo isset( $skautbazar_inzerat['inzerat']['price'] ) ? $skautbazar_inzerat['inzerat']['price'] : ''; ?>">
+						<input type="text" name="skautbazar_price" id="skautbazar_price" value="<?php echo isset( $skautbazar_inzerat['inzerat']['price'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['price'] ) : ''; ?>">
 						<?php
 						if ( isset( $skautbazar_option['default_currency_position'] ) && $skautbazar_option['default_currency_position'] == 'right' ) {
-							echo ' ' . $skautbazar_option['default_currency'];}
+							echo ' ' . esc_html( $skautbazar_option['default_currency'] );}
 						?>
 					</td>
 				</tr>
 				<tr class="skautbazar_row_hidden" id="skautbazar_row_exchange">
-					<td class="skautbazar_table_header">*<?php _e( 'Description for exchange', 'skaut-bazar' ); ?>:</td>
-					<td><input type="text" name="skautbazar_exchange" id="skautbazar_exchange" value="<?php echo isset( $skautbazar_inzerat['inzerat']['exchange'] ) ? $skautbazar_inzerat['inzerat']['exchange'] : ''; ?>"></td>
+					<td class="skautbazar_table_header">*<?php esc_html_e( 'Description for exchange', 'skaut-bazar' ); ?>:</td>
+					<td><input type="text" name="skautbazar_exchange" id="skautbazar_exchange" value="<?php echo isset( $skautbazar_inzerat['inzerat']['exchange'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['exchange'] ) : ''; ?>"></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['amount'] == 1 ) ? '*' : ''; ?><?php _e( 'Amount', 'skaut-bazar' ); ?>:</td>
-					<td><input name="skautbazar_mnozstvi_inzerat_autor" id="skautbazar_mnozstvi_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['amount'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['amount'] ) ? $skautbazar_inzerat['inzerat']['amount'] : '1'; ?>"></td>
+					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['amount'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Amount', 'skaut-bazar' ); ?>:</td>
+					<td><input name="skautbazar_mnozstvi_inzerat_autor" id="skautbazar_mnozstvi_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['amount'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['amount'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['amount'] ) : '1'; ?>"></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['size'] == 1 ) ? '*' : ''; ?><?php _e( 'Size', 'skaut-bazar' ); ?>:</td>
-					<td><input name="skautbazar_velikost_inzerat_autor" id="skautbazar_velikost_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['size'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['size'] ) ? $skautbazar_inzerat['inzerat']['size'] : ''; ?>"></td>
+					<td class="skautbazar_table_header"><?php echo ( $skautbazar_option['required_fields']['size'] == 1 ) ? '*' : ''; ?><?php esc_html_e( 'Size', 'skaut-bazar' ); ?>:</td>
+					<td><input name="skautbazar_velikost_inzerat_autor" id="skautbazar_velikost_inzerat_autor" <?php echo ( $skautbazar_option['required_fields']['size'] == 1 ) ? 'class="required"' : ''; ?> type="tel" value="<?php echo isset( $skautbazar_inzerat['inzerat']['size'] ) ? esc_attr( $skautbazar_inzerat['inzerat']['size'] ) : ''; ?>"></td>
 				</tr>
 				<tr>
-					<td class="skautbazar_table_header"><?php _e( 'Description', 'skaut-bazar' ); ?>:</td>
+					<td class="skautbazar_table_header"><?php esc_html_e( 'Description', 'skaut-bazar' ); ?>:</td>
 					<td>
 						<?php
 						if ( isset( $skautbazar_description[0] ) ) {
@@ -650,98 +656,98 @@ class skaut_bazar {
 		?>
 
 		<div class="wrap">
-			<h2><?php _e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
+			<h2><?php esc_html_e( 'Skaut bazar settings', 'skaut-bazar' ); ?></h2>
 			<form method="post" action="<?php echo esc_url( $_SERVER['PHP_SELF'] ); ?>?page=skatubazar_option">
-				<h3> <?php _e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
+				<h3> <?php esc_html_e( 'Plugin settings', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
-						<td style="width: 300px;"><?php _e( 'Allow message from buyer to the seller', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='allow_buyer_message' name='allow_buyer_message' value='1' <?php checked( 1 == $skautbazar_option['allow_buyer_message'] ); ?>' /></td>
+						<td style="width: 300px;"><?php esc_html_e( 'Allow message from buyer to the seller', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='allow_buyer_message' name='allow_buyer_message' value='1' <?php checked( 1 == $skautbazar_option['allow_buyer_message'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Disable author lastname field', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='disable_author_lastname' name='disable_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['disable_author_lastname'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Disable author lastname field', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='disable_author_lastname' name='disable_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['disable_author_lastname'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Hide inzerat number', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='hide_inzerat_number' name='hide_inzerat_number' value='1' <?php checked( 1 == $skautbazar_option['hide_inzerat_number'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Hide inzerat number', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='hide_inzerat_number' name='hide_inzerat_number' value='1' <?php checked( 1 == $skautbazar_option['hide_inzerat_number'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Last inzerat no.', 'skaut-bazar' ); ?></td>
-						<td><input type="text" id="poradove_cislo" name="poradove_cislo" value="<?php echo $skautbazar_option['poradove_cislo']; ?>"></td>
+						<td><?php esc_html_e( 'Last inzerat no.', 'skaut-bazar' ); ?></td>
+						<td><input type="text" id="poradove_cislo" name="poradove_cislo" value="<?php echo esc_attr( $skautbazar_option['poradove_cislo'] ); ?>"></td>
 					</tr>
 				</table>
 
-				<h3> <?php _e( 'Required fields', 'skaut-bazar' ); ?> </h3>
+				<h3> <?php esc_html_e( 'Required fields', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
-						<td style="width: 200px;"><?php _e( 'Name', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='req_author_name' name='req_author_name' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['author_name'] ); ?>' /></td>
+						<td style="width: 200px;"><?php esc_html_e( 'Name', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='req_author_name' name='req_author_name' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['author_name'] ); ?> /></td>
 					</tr>
 					<?php if ( ! $skautbazar_option['disable_author_lastname'] ) : ?>
 						<tr>
-							<td><?php _e( 'Last name', 'skaut-bazar' ); ?></td>
-							<td><input type='checkbox' id='req_author_lastname' name='req_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['author_lastname'] ); ?>' /></td>
+							<td><?php esc_html_e( 'Last name', 'skaut-bazar' ); ?></td>
+							<td><input type='checkbox' id='req_author_lastname' name='req_author_lastname' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['author_lastname'] ); ?> /></td>
 						</tr>
 					<?php endif; ?>
 					<tr>
-						<td><?php _e( 'Picture', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='req_image' name='req_image' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['image'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Picture', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='req_image' name='req_image' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['image'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Telephone', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='req_phone' name='req_phone' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['phone'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Telephone', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='req_phone' name='req_phone' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['phone'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Amount', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='req_amount' name='req_amount' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['amount'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Amount', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='req_amount' name='req_amount' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['amount'] ); ?> /></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Size', 'skaut-bazar' ); ?></td>
-						<td><input type='checkbox' id='req_size' name='req_size' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['size'] ); ?>' /></td>
+						<td><?php esc_html_e( 'Size', 'skaut-bazar' ); ?></td>
+						<td><input type='checkbox' id='req_size' name='req_size' value='1' <?php checked( 1 == $skautbazar_option['required_fields']['size'] ); ?> /></td>
 					</tr>
 				</table>
 
-				<h3> <?php _e( 'Default values', 'skaut-bazar' ); ?> </h3>
+				<h3> <?php esc_html_e( 'Default values', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
-						<td style="width: 200px;"><?php _e( 'Default name', 'skaut-bazar' ); ?></td>
-						<td><input type="text" id="author_name" name="author_name" value="<?php echo $skautbazar_option['default_author']['author_name']; ?>"></td>
+						<td style="width: 200px;"><?php esc_html_e( 'Default name', 'skaut-bazar' ); ?></td>
+						<td><input type="text" id="author_name" name="author_name" value="<?php echo esc_attr( $skautbazar_option['default_author']['author_name'] ); ?>"></td>
 					</tr>
 					<?php if ( ! $skautbazar_option['disable_author_lastname'] ) : ?>
 						<tr>
-							<td><?php _e( 'Default last name', 'skaut-bazar' ); ?></td>
-							<td><input type="text" id="author_lastname" name="author_lastname" value="<?php echo $skautbazar_option['default_author']['author_lastname']; ?>"></td>
+							<td><?php esc_html_e( 'Default last name', 'skaut-bazar' ); ?></td>
+							<td><input type="text" id="author_lastname" name="author_lastname" value="<?php echo esc_attr( $skautbazar_option['default_author']['author_lastname'] ); ?>"></td>
 						</tr>
 					<?php endif; ?>
 					<tr>
-						<td><?php _e( 'Default e-mail', 'skaut-bazar' ); ?></td>
-						<td><input type="text" id="author_email" name="author_email" value="<?php echo $skautbazar_option['default_author']['author_email']; ?>"></td>
+						<td><?php esc_html_e( 'Default e-mail', 'skaut-bazar' ); ?></td>
+						<td><input type="text" id="author_email" name="author_email" value="<?php echo esc_attr( $skautbazar_option['default_author']['author_email'] ); ?>"></td>
 					</tr>
 					<tr>
-						<td><?php _e( 'Default telephone', 'skaut-bazar' ); ?></td>
-						<td><input type="text" id="author_tel" name="author_tel" value="<?php echo $skautbazar_option['default_author']['author_tel']; ?>"></td>
+						<td><?php esc_html_e( 'Default telephone', 'skaut-bazar' ); ?></td>
+						<td><input type="text" id="author_tel" name="author_tel" value="<?php echo esc_attr( $skautbazar_option['default_author']['author_tel'] ); ?>"></td>
 					</tr>
 				</table>
 
-				<h3> <?php _e( 'Currency', 'skaut-bazar' ); ?> </h3>
+				<h3> <?php esc_html_e( 'Currency', 'skaut-bazar' ); ?> </h3>
 				<table class="widefat fixed" cellspacing="0">
 					<tr>
-						<td style="width: 200px"><?php _e( 'Show currency', 'skaut-bazar' ); ?></td>
+						<td style="width: 200px"><?php esc_html_e( 'Show currency', 'skaut-bazar' ); ?></td>
 						<td>
 							<select name="default_currency_position" id="default_currency_position">
-								<option value="left" <?php echo $skautbazar_option['default_currency_position'] == 'left' ? 'selected' : ''; ?> ><?php _e( 'Left', 'skaut-bazar' ); ?></option>
-								<option value="right" <?php echo $skautbazar_option['default_currency_position'] == 'right' ? 'selected' : ''; ?> ><?php _e( 'Right', 'skaut-bazar' ); ?></option>
+								<option value="left" <?php echo $skautbazar_option['default_currency_position'] == 'left' ? 'selected' : ''; ?> ><?php esc_html_e( 'Left', 'skaut-bazar' ); ?></option>
+								<option value="right" <?php echo $skautbazar_option['default_currency_position'] == 'right' ? 'selected' : ''; ?> ><?php esc_html_e( 'Right', 'skaut-bazar' ); ?></option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td style="width: 200px"><?php _e( 'Currency', 'skaut-bazar' ); ?></td>
-						<td><input type="text" id="currency" name="currency" value="<?php echo isset( $skautbazar_option['default_currency'] ) ? $skautbazar_option['default_currency'] : ''; ?>"></td>
+						<td style="width: 200px"><?php esc_html_e( 'Currency', 'skaut-bazar' ); ?></td>
+						<td><input type="text" id="currency" name="currency" value="<?php echo isset( $skautbazar_option['default_currency'] ) ? esc_attr( $skautbazar_option['default_currency'] ) : ''; ?>"></td>
 					</tr>
 				</table>
 
-				<p><input type="submit" class="button-primary" name="Submit" value="<?php _e( 'Save', 'skaut-bazar' ); ?>" /></p>
+				<p><input type="submit" class="button-primary" name="Submit" value="<?php esc_attr_e( 'Save', 'skaut-bazar' ); ?>" /></p>
 				<input type="hidden" name="action" id="action" value="save">
 			</form>
 		</div>
