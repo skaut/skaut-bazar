@@ -1,0 +1,37 @@
+{
+  "name": "skaut/bazar",
+  "description": "A WordPress plugin to create a small secondhand store",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "WordPress",
+    "WordPress plugin",
+    "skaut",
+    "second-hand",
+    "sore"
+  ],
+  "homepage": "https://wordpress.org/plugins/skaut-bazar",
+  "readme": "README.md",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Marek Dědič",
+      "email": "developer@dedic.eu",
+      "homepage": "https://dedic.eu"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/skaut/skaut-bazar/issues",
+    "source": "https://github.com/skaut/skaut-bazar"
+  },
+  "require": {
+    "php": "^5.6 || ^7.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.6",
+    "phan/phan": "^4.0",
+    "phpmd/phpmd": "^2.10",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "wp-coding-standards/wpcs": "^2.3",
+    "humbug/php-scoper": "^0.15.0"
+  }
+}
