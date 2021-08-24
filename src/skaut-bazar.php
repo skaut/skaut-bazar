@@ -323,7 +323,7 @@ class skaut_bazar {
 			return;
 		}
 
-		if ( ! isset( $_POST[ 'skautbazar_meta_box_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_meta_box_nonce' ] ) ), 'skautbazar_meta_box' ) ) {
+		if ( ! isset( $_POST['skautbazar_meta_box_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['skautbazar_meta_box_nonce'] ) ), 'skautbazar_meta_box' ) ) {
 			return;
 		}
 
@@ -635,7 +635,7 @@ class skaut_bazar {
 		$skautbazar_option = get_option( 'skautbazar_option' );
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'save' ) {
-			if ( ! isset( $_POST[ 'skautbazar_options_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_options_nonce' ] ) ), 'skautbazar_options' ) ) {
+			if ( ! isset( $_POST['skautbazar_options_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['skautbazar_options_nonce'] ) ), 'skautbazar_options' ) ) {
 				return;
 			}
 			$skautbazar_option['default_author']['author_name']     = isset( $_POST['author_name'] ) ? sanitize_text_field( wp_unslash( $_POST['author_name'] ) ) : '';
@@ -1013,7 +1013,7 @@ class skaut_bazar {
 		$skautbazar_inzerat['inzerat']['buyer_email'] = isset( $_POST['bazar_item_email'] ) ? sanitize_email( wp_unslash( $_POST['bazar_item_email'] ) ) : '';
 
 		if ( $skautbazar_option['allow_buyer_message'] ) {
-			$skautbazar_inzerat['inzerat']['buyer_message'] = isset( $_POST['bazar_item_message'] ) ? sanitize_text_field( wp_unslash( $_POST['bazar_item_message'] ) ): '';
+			$skautbazar_inzerat['inzerat']['buyer_message'] = isset( $_POST['bazar_item_message'] ) ? sanitize_text_field( wp_unslash( $_POST['bazar_item_message'] ) ) : '';
 		}
 
 		update_post_meta( $id, '_skautbazar_meta', $skautbazar_inzerat );
