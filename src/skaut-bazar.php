@@ -349,8 +349,7 @@ class Bazar {
 
 		switch ( $column ) {
 			case 'custom_title':
-				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo $this->skautbazar_get_inzerat_no( $post_id );
+				echo esc_html( $this->skautbazar_get_inzerat_no( $post_id ) );
 				break;
 			case 'status':
 				echo esc_html( $this->skautbazar_get_status_value( $post_id ) );
