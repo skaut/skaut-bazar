@@ -4,7 +4,7 @@
  * Plugin name: Skaut bazar
  * Plugin URI: https://github.com/skaut/skaut-bazar
  * Description: Bazar for Scout troops
- * Version: 1.3.4
+ * Version: 1.3.5
  * Author: Junák - český skaut
  * Author URI: https://github.com/skaut
  * Text Domain: skaut-bazar
