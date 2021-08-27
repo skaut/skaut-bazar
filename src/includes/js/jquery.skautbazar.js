@@ -1,6 +1,3 @@
-		if ( ! isset( $_POST[ 'skautbazar_meta_box_nonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ 'skautbazar_meta_box_nonce' ] ) ), 'skautbazar_meta_box' ) ) {
-			return;
-		}
 function validateEmail($email) {
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     return emailReg.test($email);
