@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 
         var data = {
             'action': 'skautbazar_rezervace',
-            _ajax_nonce: ajax_object.ajax_nonce.
+            _ajax_nonce: ajax_object.ajax_nonce,
             'bazar_item_id': id,
             'bazar_item_email': email,
             'bazar_item_message': message
