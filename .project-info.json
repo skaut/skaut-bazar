@@ -1,0 +1,43 @@
+{
+    "name": "WordPress plugin: Skaut bazar",
+    "short-description": "Plugin pro WordPress, který zajištuje jednoduchý bazar různého vybavení.",
+    "description": "Implementace jednoduchého bazaru s možností online rezervace přes email. Plugin po aktivaci se vkládá na libovolnou stránku pomocí shortcode. Plugin podporuje i MultiSite, takže můžete mít na každé stránce jiný bazar, s vlastním nastavením a vším co je s tím spojené.",
+    "tags": [
+        "wordpress",
+        "php",
+        "javascript"
+    ],
+    "maintainers": [
+        {
+            "name": "Michal Janata – Kalich",
+            "email": "kalich@skaut.cz"
+        },
+        {
+            "name": "Marek Dědič – Mlha",
+            "email": "mlha@skaut.cz"
+        }
+    ],
+    "links": [
+        {
+            "type": "email",
+            "uri": "mailto:kalich@skaut.cz"
+        },
+        {
+            "type": "homepage",
+            "uri": "https://wordpress.org/plugins/skaut-bazar/"
+        },
+        {
+            "type": "issue-tracker",
+            "uri": "https://github.com/skaut/skaut-bazar/issues"
+        },
+        {
+            "type": "docs",
+            "uri": "https://napoveda.skaut.cz/dobryweb/skaut-bazar"
+        },
+        {
+            "type": "github-repo",
+            "uri": "https://github.com/skaut/skaut-bazar",
+            "name": "skaut/skaut-bazar"
+        }
+    ]
+}
