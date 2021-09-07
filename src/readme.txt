@@ -1,4 +1,4 @@
-﻿=== Scut bazar ===
+﻿=== Scout bazar ===
 Contributors: skaut, kalich5, davidulus, kulikjak, rbrounek, marekdedic
 Tags: bazar, skaut, multisite, plugin, shortcode
 Requires at least: 5.0
