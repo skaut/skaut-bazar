@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin name: Skaut bazar
+ * Plugin name: Scout bazar
  * Plugin URI: https://github.com/skaut/skaut-bazar
  * Description: Bazar for Scout troops
  * Version: 1.3.6

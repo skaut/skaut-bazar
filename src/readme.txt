@@ -1,4 +1,4 @@
-﻿=== Skaut bazar ===
+﻿=== Scout bazar ===
 Contributors: skaut, kalich5, davidulus, kulikjak, rbrounek, marekdedic
 Tags: bazar, skaut, multisite, plugin, shortcode
 Requires at least: 5.0
@@ -8,59 +8,54 @@ Stable tag: 1.3.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Implementace jednoduchého bazaru s možností online rezervace přes email
+Implementation of a simple bazaar with the possibility of online booking via email.
 
 == Description ==
 
-Implementace jednoduchého bazaru s možností online rezervace přes email
+Implementation of a simple bazaar with the possibility of online booking via email.
 
-Plugin po aktivaci se vkládá na libovolnou stránku pomocí Shortcodes: **[skautbazar]**
+Once activated, the plugin is inserted into any page using Shortcodes: **[skautbazar]**
 
-Plugin podporuje i MultiSite, takže můžete mít na každé stránce jiný bazar, s vlastním nastavením a vším co je s tím spojené. V nastavení je možnost výrozích hodnot. Tedy jméno, přijímení, email a telefon. Požadovaný je vše kromě telefonu.
-Při zakládání nového inzerátu, jsou požadovaná pole označena kvězdičkou.
+The plugin also supports MultiSite, so you can have a different bazaar on each page, with its own settings and everything connected with it. There is a possibility of value ranges in the settings. That is, name, reception, email and phone. Everything but the phone is required.
+When creating a new advertisement, the required fields are marked with an asterisk.
 
-**Uživatelské role**
+**User roles**
 
-Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) nebo [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), která může mít práva jen k inzerátům.
-
-**Nápady na nové fukce**
-
-Máte nějaký nápad, napište prosím do místního fóra. Pokusíme se když tak zapraovat
-[https://github.com/skaut/skaut-bazar/issues/15](https://github.com/skaut/skaut-bazar/issues/15)
+Ability to create a "Bazar" role (or roles) using some role creation plugin [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) or [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), which may have rights only to advertisements.
 
 == Installation ==
 
-Instalace je jednoduchá.
+Installation is simple.
 
-1. Stáhnout si plugin a aktivovat
-2. Výchozí nastavení "nastavení --> Skaut bazar"
-	V tomto nastavní si nastavte základní informace o sobě
-3. Vložte na stránku kde chcete mít výpis inzerátů shordtcode: **[skautbazar]**
+1. Download the plugin and activate
+2. Default setting "settings -> Scout bazar"
+	Set basic information about yourself in this setting
+3. Load the page where you want to dump ads shordtcode: **[skautbazar]**
 
 == Frequently Asked Questions ==
 
-**Jak plugin správně nastavit?**
+**How to set the plugin correctly?**
 
-Musí se v "Nastavení" a najít tam položku "Skaut bazar" a tam je výchozí nastavení.
+You have to go to "Settings" and find there the item "Scout Bazar" and there is the default setting.
 
-Dá se tam zadat jméno, přijímení, email, telefon, měnu a počáteční číslo inzereátu.
+You can enter your name, surname, email, telephone number, currency and the initial number of the advertisement.
 
-Možnost vytvořit roli "Bazar" (nebo role) pomocí některého pluginu na vytváření rolí [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) nebo [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), která může mít práva jen k inzerátům.
+Ability to create a "Bazar" role (or roles) using some role creation plugin [WPFront User Role Editor](https://cs.wordpress.org/plugins/wpfront-user-role-editor/) or [User Role Editor](https://cs.wordpress.org/plugins/user-role-editor/), which may have rights only to advertisements.
 
-**podpora pluginu**
+**Plugin support**
 
-Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skauting.cz/)
+Official support is on [http://dobryweb.skauting.cz/](http://dobryweb.skauting.cz/)
 
-**Jsme na GitHubu**
+**GITHUB**
 
 [https://github.com/skaut/skaut-bazar](https://github.com/skaut/skaut-bazar)
 
 == Screenshots ==
 
-1. Zobrazení na stránkách
-2. Výpis všech položek bazaru
-3. Založení nové položky
-4. Nastavení
+1. Impressions on pages
+2. Listing of all bazaar items
+3. Create a new item
+4. Settings
 
 == Changelog ==
 
@@ -74,44 +69,44 @@ Oficiální podpora je na [http://dobryweb.skauting.cz/](http://dobryweb.skautin
 * Fixed security issues
 
 = 1.3.3 =
-* oprava chyb
+* Error correction
 
 = 1.3.2 =
-* minimální verze WordPressu 4.9.6
+* Minimum version of WordPress 4.9.6
 
 = 1.3.1 =
-* doplněna možnost překladů přímo na WordPres.org
+* Added the ability to translate directly to WordPres.org
 
 = 1.3 =
-* přidána možnost zaslat nabízejícímu zprávu
-* přidána možnost skrýt příjmení
-* automatické vyplňování jména a emailu do formulářů
-* oprava menších glitchů
+* Added the ability to send a message to the bidder
+* Added option to hide last name
+* Automatic filling of name and email into forms
+* Repair of smaller glitches
 
 = 1.2 =
-* oprava uživatelských rolí a jejich přidávání
-* po smazání pluginu, se smažou i role které byly pluginem vytvořené
+* Fix user roles and add them
+* After deleting the plugin, the roles created by the plugin will also be deleted
 
 = 1.1 =
-* přidání možnosti vytvářet si role k pluginu
+* Adding the ability to create roles for the plugin
 
 = 1.0.4 =
-* ikonka
+* Icon
 
 = 1.0.3 =
-* přidána úvodní fotky
-* screenshoty
+* Added introductory photos
+* Screenshots
 
 = 1.0.2 =
-* opravy na wordpress.org 2
+* Fixes on wordpress.org
 
 = 1.0.1 =
-* opravy na wordpress.org
+* Fixes on wordpress.org
 
 = 1.0 =
-* možnost zakládat inzeráty
-* rezervace přes email
-* podpora MultiSite
-* podpora rubrik a štítků
-* překlad EN a CZ
-* podpora shortcodes
+* Possibility to create advertisements
+* Booking via email
+* MultiSite support
+* Category and tag support
+* Translation of EN and CZ
+* Support for shortcodes
