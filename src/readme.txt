@@ -2,7 +2,7 @@
 Contributors: skaut, kalich5, davidulus, kulikjak, rbrounek, marekdedic
 Tags: bazar, skaut, multisite, plugin, shortcode
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.9
 Requires PHP: 5.6
 Stable tag: 1.3.6
 License: GPLv3 or later
