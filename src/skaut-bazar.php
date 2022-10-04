@@ -106,7 +106,7 @@ class Bazar {
 		printf(
 			/* translators: 1: Start of a link to the WPAdverts plugin 2: End of the link to the WPAdverts plugin 3: Start of a link to install 4: End of the installl link */
 			esc_html__(
-				'The Skaut bazar plugin is deprecated, will not receive any updates and will be closed at the end of 2022. We recommend using the %1$sWPAdverts%2$s plugin instead. Install it %3$shere%4$s.',
+				'The Scout bazar plugin is deprecated, will not receive any updates and will be closed at the end of 2022. We recommend using the %1$sWPAdverts%2$s plugin instead. Install it %3$shere%4$s.',
 				'skaut-bazar'
 			),
 			'<a target="_blank" rel="noreferrer noopener" href="' . esc_url( 'https://wordpress.org/plugins/wpadverts/' ) . '">',
