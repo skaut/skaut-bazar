@@ -10,6 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Implementation of a simple bazaar with the possibility of online booking via email.
 
+== DEPRECATION NOTICE ==
+
+The Scout bazar plugin is deprecated, will not receive any updates and will be closed at the end of 2022. We recommend using the [WPAdverts](https://wordpress.org/plugins/wpadverts/) plugin instead.
+
 == Description ==
 
 Implementation of a simple bazaar with the possibility of online booking via email.
