@@ -4,7 +4,7 @@ Tags: bazar, skaut, multisite, plugin, shortcode
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -62,6 +62,9 @@ Official support is on [http://dobryweb.skauting.cz/](http://dobryweb.skauting.c
 4. Settings
 
 == Changelog ==
+
+= 1.3.7 =
+* Added a deprecation notice
 
 = 1.3.6 =
 * Fixed the "Interested" button
